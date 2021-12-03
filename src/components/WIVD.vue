@@ -11,7 +11,7 @@ export default defineComponent({
     setup() {
         const works = ref<work[]>([
             {
-                title: 'LOCUS SYSTEMS', description: 'I designed and created an amazing landing page for Locus Systems. A company dedicated to transport logistics and trips management. I created this landing page in 3 different languages: Spanish, English and French .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/2.png',color:"text-5xl font-bold text-purple-500",id:"1",
+                title: 'LOCUS SYSTEMS', description: 'I designed and created an amazing landing page and Desktop System for Locus Systems. A company dedicated to transport logistics and trips management. I created this landing page in 3 different languages: Spanish, English and French .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/9.png',color:"text-5xl font-bold text-purple-500",id:"1",
             },
                         {
                 title: 'GUDFOOD', description: `I created this amazing landing page as a restaurant webpage concept. Using amazing On-Scroll animations I achieved an amazing UX and UI. This helps to attract the user's attention, making them pottential customers .`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/6.png',color:"text-5xl font-bold text-yellow-500", id:"2",

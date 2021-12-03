@@ -1,12 +1,12 @@
 <template>
-    <div class="flex justify-evenly space-x-5 p-5">   
-        <div class="flex items-center justify-center group cursor-pointer">
+    <div class="md:flex justify-evenly md:space-x-5 md:p-5">   
+        <div class="flex items-center justify-center group cursor-pointer space-x-3 md:space-x-5">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 group-hover:text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <p class="mx-6 font-bold group-hover:text-yellow-600">hellojuancho75@gmail.com</p>
+            <p class="md:mx-6 font-bold group-hover:text-yellow-600">hellojuancho75@gmail.com</p>
         </div>
-        <div class="flex items-center justify-center group cursor-pointer space-x-5">
+        <div class="flex items-center justify-center group cursor-pointer space-x-3 md:space-x-5 my-5 md:mt-0">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github hover:text-purple-600" width="34" height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
@@ -20,9 +20,12 @@
     </div>
 </template>
 
-<style>
+<style >
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;800&display=swap');
     p{
+        font-family: 'Poppins', sans-serif;
+    }
+    h1{
         font-family: 'Poppins', sans-serif;
     }
 </style>

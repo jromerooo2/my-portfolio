@@ -11,12 +11,16 @@ import WIVD from './components/WIVD.vue'
       <div class="h-screen">
             <Header />
             <div class="flex flex-col items-center mx-auto 2xl:mt-10">  
-                <HelloWorld msg="Hello , I'm Juan Romero👋. &#160;&#160;&#160;" />  
+                <HelloWorld msg="Hello , I'm Juan Romero👋. &#160;&#160;&#160;" />
             </div>
       </div>
-      <div class="h-screen">
+      <div class="">
           <WIVD  />
       </div>
+        <div class="h-screen flex flex-col items-center mx-auto 2xl:mt-10">  
+                            <Header />
+                <HelloWorld msg="Hello , I'm Juan Romero👋. &#160;&#160;&#160;" />  
+        </div>
 </template>
 
 <style>

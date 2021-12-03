@@ -1,6 +1,9 @@
 <script setup lang="ts">
 
 defineProps<{ msg: string }>()
+export default{
+  name: 'HelloWorld',
+}
 
 </script>
 

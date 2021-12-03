@@ -32,9 +32,9 @@ export default defineComponent({
 
 <template class="body ">
     <section class="md:flex mt-14 md:mt-0 md:space-x-5">
-            <div class=" md:sticky md:flex flex-col items-center justify-center w-full md:min-h-screen h-24 top-0">
-            <img class="collant mx-auto my-2 img " alt="Vue logo" src="../assets/dev.png" />
-            <h1 class="text-4xl font-bold abt text-center md:p-5 text-blue-900">What I've Been Working on.</h1>
+            <div class="relative md:sticky my-24 md:my-0 md:flex flex-col md:h-14 items-center justify-center w-full md:min-h-screen  top-0">
+                <img class="collant mx-auto my-2 img " alt="Vue logo" src="../assets/dev.png" />
+                <h1 class="text-4xl font-bold abt text-center md:p-5 text-blue-900">What I've Been Working on.</h1>
             </div>
 
             <div class="">

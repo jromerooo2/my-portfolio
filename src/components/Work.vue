@@ -1,13 +1,15 @@
-<template lang="">
-    <div>
-        
-    </div>
-</template>
-<script>
-export default {
-    name: 'Work',
-}
-</script>
-<style lang="">
+<template>
     
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+
+})
+</script>
+
+<style>
+
 </style>

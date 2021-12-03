@@ -1,9 +1,24 @@
 <script lang="ts">
 import Work from '@/components/Work.vue'
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import work from '../types/work'
 
 export default defineComponent({
     name: 'WIVD',
+    components: {
+        Work
+    },
+    setup() {
+        const works = ref<work[]>([
+            {
+                title: 'Vue.js',
+                description: 'Vue.js is a progressive framework for building user interfaces. It is maintained by the community and designed to be incrementally adoptable. For more information, see the official documentation.',
+            }
+        ])
+
+        return { works }
+    }
+
 })
 </script>
 

@@ -1,6 +1,6 @@
 <template>
-    <div >
-        <div class="md:h-screen flex flex-col items-center justify-center p-4 md:p-9" v-for="work in works" :key="work.id">
+    <div class="flex md:block overflow-x-scroll overflow-y-hidden">
+        <div class="md:h-screen flex flex-col items-center justify-center p-4 md:p-9 min-w-full" v-for="work in works" :key="work.id">
             <h1 class="text-5xl font-bold ">{{work.title}}</h1>
             <img class="my-5"  :src="work.image"/>
             <p class="text-justify text-xl">{{work.description}}</p>

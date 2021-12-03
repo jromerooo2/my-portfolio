@@ -37,7 +37,7 @@ export default defineComponent({
                 <h1 class="text-4xl font-bold abt text-center md:p-5 text-blue-900">What I've Been Working on.</h1>
             </div>
 
-            <div class="">
+            <div class="flex">
                     <Work :works="works" />
             </div>
     </section>

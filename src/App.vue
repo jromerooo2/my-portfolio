@@ -10,7 +10,7 @@ import WIVD from './components/WIVD.vue'
 <template>
       <div class="h-screen">
             <Header />
-            <div class="flex flex-col items-center mx-auto mt-16 ">  
+            <div class="flex flex-col items-center mx-auto 2xl:mt-10">  
                 <HelloWorld msg="Hello , I'm Juan Romero👋. &#160;&#160;&#160;" />  
             </div>
       </div>
@@ -20,9 +20,6 @@ import WIVD from './components/WIVD.vue'
 </template>
 
 <style>
-.collant{
-  width: 350px;
-}
 html{
     height:100%;
     width:100%;

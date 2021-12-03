@@ -1,6 +1,6 @@
 <template>
     <div >
-        <div class="h-screen flex flex-col items-center justify-center" v-for="work in works" :key="work.id">
+        <div class="md:h-screen flex flex-col items-center justify-center p-4 md:p-9" v-for="work in works" :key="work.id">
             <h1 class="text-5xl font-bold ">{{work.title}}</h1>
             <img class="my-5"  :src="work.image"/>
             <p class="text-justify text-xl">{{work.description}}</p>
@@ -22,20 +22,6 @@ export default defineComponent({
             type: String as PropType<string>
         }
     },
-    mounted(){
-        console.log(this.works[0].image)
-    }
 })
 </script>
 
-
-<style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;800&display=swap');
-
-    img{
-        width: 550px;
-    }
-    P{
-        width: 50%;
-    }
-</style>

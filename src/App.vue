@@ -24,12 +24,16 @@ import WIVD from './components/WIVD.vue'
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;800&display=swap');
+
 html{
     height:100%;
     width:100%;
     margin: 0px;
 }
-
+h1{
+  font-family: "Poppins", sans-serif;
+}
 body{
     height:100%;
     width: 100%;

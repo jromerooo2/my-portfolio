@@ -11,16 +11,16 @@ export default defineComponent({
     setup() {
         const works = ref<work[]>([
             {
-                title: 'Vue.js', description: 'Vue.js is a progressive framework for building user interfaces. It is maintained by the community and designed to be incrementally adoptable. For more information, see the official documentation.', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/2.png',id:"1",
+                title: 'LOCUS SYSTEMS', description: 'I designed and created an amazing landing page for Locus Systems. A company dedicated to transport logistics and trips management. I created this landing page in 3 different languages: Spanish, English and French .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/2.png',color:"text-5xl font-bold text-purple-500",id:"1",
             },
                         {
-                title: 'Vue.js', description: 'Vue.js is a progressive framework for building user interfaces. It is maintained by the community and designed to be incrementally adoptable. For more information, see the official documentation.',image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/7.png', id:"2",
+                title: 'GUDFOOD', description: `I created this amazing landing page as a restaurant webpage concept. Using amazing On-Scroll animations I achieved an amazing UX and UI. This helps to attract the user's attention, making them pottential customers .`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/6.png',color:"text-5xl font-bold text-yellow-500", id:"2",
             },
                         {
-                title: 'Vue.js', description: 'Vue.js is a progressive framework for building user interfaces. It is maintained by the community and designed to be incrementally adoptable. For more information, see the official documentation.', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png', id:"3",
+                title: 'REAL TIME LOCATION', description: 'As part of my contribution to Locus Systems I developed a real time location web app for the Busses. This way the owners of the company can have access to the busses location in any time. This helped the company by increasing the security given to their clients of a more secure trip .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-5xl font-bold text-purple-500", id:"3",
             },
                         {
-                title: 'Vue.js', description: 'Vue.js is a progressive framework for building user interfaces. It is maintained by the community and designed to be incrementally adoptable. For more information, see the official documentation.', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/3.png', id:"4",
+                title: 'Vue.js', description: 'Vue.js is a progressive framework for building user interfaces. It is maintained by the community and designed to be incrementally adoptable. For more information, see the official documentation.', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/3.png',color:"text-5xl font-bold text-purple-500", id:"4",
             },
         ])
 
@@ -32,9 +32,16 @@ export default defineComponent({
 
 <template class="body ">
     <section class="md:flex mt-14 md:mt-0 md:space-x-5">
-            <div class="relative md:sticky my-24 md:my-0 md:flex flex-col md:h-14 items-center justify-center w-full md:min-h-screen  top-0">
+            <div class="relative md:sticky mt-24 md:mt-0 md:flex flex-col md:h-14 items-center justify-center w-full md:min-h-screen  top-0">
                 <img class="collant mx-auto my-2 img " alt="Vue logo" src="../assets/dev.png" />
-                <h1 class="text-4xl font-bold abt text-center md:p-5 text-blue-900">What I've Been Working on.</h1>
+                <h1 class="text-4xl font-bold abt text-center md:p-5 text-blue-900">What I've Worked on.</h1>
+                <h1 class="font-bold text-2xl block sm:hidden text-center mt-8">Scroll to see my work!</h1>
+                <svg xmlns="http://www.w3.org/2000/svg" class="block sm:hidden icon icon-tabler icon-tabler-arrow-narrow-right mx-auto" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <line x1="15" y1="16" x2="19" y2="12" />
+                <line x1="15" y1="8" x2="19" y2="12" />
+                </svg>
             </div>
 
             <div class="flex">

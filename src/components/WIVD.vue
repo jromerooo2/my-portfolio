@@ -11,7 +11,7 @@ export default defineComponent({
     setup() {
         const works = ref<work[]>([
             {
-                title: 'Google Clone', description: `I made a google clone but with the famous character "Hatsune Miku" as logo for the search bar using google's API to handle searchs.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hatsune.png',color:"text-5xl font-bold text-red-500 text-left", id:"4",
+                title: 'Google Clone', description: `I made a google clone but with the famous character "Hatsune Miku" as logo for the search bar using google's API to handle searchs. As google has a paid API I used a dummy info system to not exceed google's quota per API key. `, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hatsune.png',color:"text-5xl font-bold bg-gradient-to-r from-red-400 to-yellow-600 text-transparent bg-clip-text mb-3 text-left", id:"4",
             },
                         { 
                 title: 'GUDFOOD', description: `I created this amazing landing page as a restaurant webpage concept. Using amazing On-Scroll animations I achieved an amazing UX and UI. This helps to attract the user's attention, making them pottential customers .`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/6.png',color:"text-5xl font-bold text-yellow-500 text-left", id:"2",
@@ -34,7 +34,7 @@ export default defineComponent({
     <section class="md:flex mt-14 md:mt-0 md:space-x-5">
             <div class="relative md:sticky mt-24 md:mt-0 md:flex flex-col md:h-14 items-center justify-center w-full md:min-h-screen  top-0">
                 <img class="collant mx-auto my-2 img " alt="Vue logo" src="../assets/dev.png" />
-                <h1 class="text-4xl font-bold abt text-center md:p-5 text-blue-900">What I've Worked on.</h1>
+                <h1 class="text-4xl font-bold abt text-center md:p-5 text-blue-900">Some of the stuff <br>I've Worked on.</h1>
                 <h1 class="font-bold text-2xl block sm:hidden text-center mt-8">Scroll to see my work!</h1>
                 <svg xmlns="http://www.w3.org/2000/svg" class="block sm:hidden icon icon-tabler icon-tabler-arrow-narrow-right mx-auto" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

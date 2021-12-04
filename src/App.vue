@@ -39,14 +39,18 @@ html{
     width:100%;
     margin: 0px;
 }
-section{
-    scroll-snap-align: start;
+@media screen and (min-width: 1024px) {
+    section{
+        scroll-snap-align: start;
+    }
+    .container-app{
+        height:100vh;
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+    }
 }
-.container-app{
-    height:100vh;
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-}
+    
+
 h1{
   font-family: "Poppins", sans-serif;
 }

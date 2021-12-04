@@ -11,16 +11,16 @@ export default defineComponent({
     setup() {
         const works = ref<work[]>([
             {
-                title: 'LOCUS SYSTEMS', description: 'I designed and created an amazing landing page and Desktop System for Locus Systems. A company dedicated to transport logistics and trips management. I created this landing page in 3 different languages: Spanish, English and French .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/9.png',color:"text-5xl font-bold text-purple-900",id:"1",
+                title: 'Google Clone', description: `I made a google clone but with the famous character "Hatsune Miku" as logo for the search bar using google's API to handle searchs.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hatsune.png',color:"text-5xl font-bold text-red-500 text-left", id:"4",
+            },
+                        { 
+                title: 'GUDFOOD', description: `I created this amazing landing page as a restaurant webpage concept. Using amazing On-Scroll animations I achieved an amazing UX and UI. This helps to attract the user's attention, making them pottential customers .`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/6.png',color:"text-5xl font-bold text-yellow-500 text-left", id:"2",
             },
                         {
-                title: 'GUDFOOD', description: `I created this amazing landing page as a restaurant webpage concept. Using amazing On-Scroll animations I achieved an amazing UX and UI. This helps to attract the user's attention, making them pottential customers .`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/6.png',color:"text-5xl font-bold text-yellow-500", id:"2",
+                title: 'LOCUS SYSTEMS', description: 'I designed and created an amazing landing page and Desktop System for Locus Systems. A company dedicated to transport logistics and trips management. I created this landing page in 3 different languages: Spanish, English and French .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/9.png',color:"text-5xl font-bold text-purple-900 text-left",id:"1",
             },
-                        {
-                title: 'REAL TIME LOCATION', description: 'As part of my contribution to Locus Systems I developed a real time location web app for the Busses. This way the owners of the company can have access to the busses location in any time. This helped the company by increasing the security given to their clients of a more secure trip .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-5xl font-bold text-purple-500", id:"3",
-            },
-                        {
-                title: 'Vue.js', description: 'Vue.js is a progressive framework for building user interfaces. It is maintained by the community and designed to be incrementally adoptable. For more information, see the official documentation.', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/3.png',color:"text-5xl font-bold text-purple-500", id:"4",
+                                    {
+                title: 'REAL TIME LOCATION', description: 'As part of my contribution to Locus Systems I developed a real time location web app for the Busses. This way the owners of the company can have access to the busses location in any time. This helped the company by increasing the security given to their clients of a more secure trip .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-5xl font-bold text-purple-500 text-left", id:"3",
             },
         ])
 

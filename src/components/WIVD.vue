@@ -17,10 +17,10 @@ export default defineComponent({
                 title: 'GUDFOOD', description: `I created this amazing landing page as a restaurant webpage concept. Using amazing On-Scroll animations I achieved an amazing UX and UI. This helps to attract the user's attention, making them pottential customers .`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/6.png',color:"text-5xl font-bold text-yellow-500 text-left", id:"2",
             },
                         {
-                title: 'NFTS Dev', description: `I created a NFT collection smart contract with an amazing website to mint some NFTs using Pablo's Stanley Graphic Design, you can check them out here.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/nfts.png',color:"text-5xl font-bold text-purple-900 text-left",id:"1",
+                title: 'NFTS Dev', description: `I created a NFT collection smart contract with an amazing website to mint some NFTs using Pablo's Stanley Graphic Design, you can check them out on mi Github Profile.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/nfts.png',color:"text-5xl font-bold text-purple-900 text-left",id:"1",
             },
                                     {
-                title: 'REAL TIME LOCATION', description: 'As part of my contribution to Locus Systems I developed a real time location web app for the Busses. This way the owners of the company can have access to the busses location in any time. This helped the company by increasing the security given to their clients of a more secure trip .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-5xl font-bold text-purple-500 text-left", id:"3",
+                title: 'REAL TIME LOCATION', description: 'As part of my contribution to Locus Systems I developed a real time location web app for Busses. This way the owners of the company can have access to the busses location at any time. This helped the company by increasing the security given to their clients of a more secure trip .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-5xl font-bold text-purple-500 text-left", id:"3",
             },
         ])
 

@@ -17,10 +17,10 @@ export default defineComponent({
                 title: 'GUDFOOD', description: `I created this amazing landing page as a restaurant webpage concept. Using amazing On-Scroll animations I achieved an amazing UX and UI. This helps to attract the user's attention, making them pottential customers .`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/6.png',color:"text-5xl font-bold text-yellow-500 text-left", id:"2",link:""
             },
                         {
-                title: 'NFTS Dev', description: `I created a NFT collection smart contract with an amazing website to mint some NFTs using Pablo's Stanley Graphic Design, you can check them out on mi Github Profile.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/nfts.png',color:"text-5xl font-bold text-purple-900 text-left",id:"1",link:"https://github.com/jromerooo2/google3.0"
+                title: 'NFTS Dev', description: `I created a NFT collection smart contract with an amazing website to mint some NFTs using Pablo's Stanley Graphic Design, you can check them out on mi Github Profile.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/nfts.png',color:"text-5xl font-bold text-purple-900 text-left",id:"1",link:"https://bafybeib7q25g2tb45luoljwtgef4inmwki2ygkx2s3k6ha6a6il5wkdnhm.ipfs.infura-ipfs.io/#/"
             },
                                     {
-                title: 'REAL TIME LOCATION', description: 'As part of my contribution to Locus Systems I developed a real time location web app for Busses. This way the owners of the company can have access to the busses location at any time. This helped the company by increasing the security given to their clients of a more secure trip .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-5xl font-bold text-purple-500 text-left", id:"3",link:"https://github.com/jromerooo2/google3.0"
+                title: 'REAL TIME LOCATION', description: 'As part of my contribution to Locus Systems I developed a real time location web app for Busses. This way the owners of the company can have access to the busses location at any time. This helped the company by increasing the security given to their clients of a more secure trip .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-5xl font-bold text-purple-500 text-left", id:"3",link:"https://github.com/jromerooo2/real-time-l18n"
             },
         ])
 

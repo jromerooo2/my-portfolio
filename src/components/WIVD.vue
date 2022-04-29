@@ -11,16 +11,16 @@ export default defineComponent({
     setup() {
         const works = ref<work[]>([
             {
-                title: 'Google Clone', description: `I made a google clone but with the famous character "Hatsune Miku" as logo for the search bar using google's API to handle searchs. As google has a paid API I used a dummy info system to not exceed google's quota per API key. `, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hatsune.png',color:"text-5xl font-bold bg-gradient-to-r from-red-400 to-yellow-600 text-transparent bg-clip-text mb-3 text-left", id:"4",
+                title: 'Google Clone', description: `I made a google clone but with the famous character "Hatsune Miku" as logo for the search bar using google's API to handle searchs. As google has a paid API I used a dummy info system to not exceed google's quota per API key. `, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hatsune.png',color:"text-5xl font-bold bg-gradient-to-r from-red-400 to-yellow-600 text-transparent bg-clip-text mb-3 text-left", id:"4", link:"https://github.com/jromerooo2/google3.0",
             },
                         { 
-                title: 'GUDFOOD', description: `I created this amazing landing page as a restaurant webpage concept. Using amazing On-Scroll animations I achieved an amazing UX and UI. This helps to attract the user's attention, making them pottential customers .`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/6.png',color:"text-5xl font-bold text-yellow-500 text-left", id:"2",
+                title: 'GUDFOOD', description: `I created this amazing landing page as a restaurant webpage concept. Using amazing On-Scroll animations I achieved an amazing UX and UI. This helps to attract the user's attention, making them pottential customers .`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/6.png',color:"text-5xl font-bold text-yellow-500 text-left", id:"2",link:"https://github.com/jromerooo2/google3.0"
             },
                         {
-                title: 'NFTS Dev', description: `I created a NFT collection smart contract with an amazing website to mint some NFTs using Pablo's Stanley Graphic Design, you can check them out on mi Github Profile.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/nfts.png',color:"text-5xl font-bold text-purple-900 text-left",id:"1",
+                title: 'NFTS Dev', description: `I created a NFT collection smart contract with an amazing website to mint some NFTs using Pablo's Stanley Graphic Design, you can check them out on mi Github Profile.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/nfts.png',color:"text-5xl font-bold text-purple-900 text-left",id:"1",link:"https://github.com/jromerooo2/google3.0"
             },
                                     {
-                title: 'REAL TIME LOCATION', description: 'As part of my contribution to Locus Systems I developed a real time location web app for Busses. This way the owners of the company can have access to the busses location at any time. This helped the company by increasing the security given to their clients of a more secure trip .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-5xl font-bold text-purple-500 text-left", id:"3",
+                title: 'REAL TIME LOCATION', description: 'As part of my contribution to Locus Systems I developed a real time location web app for Busses. This way the owners of the company can have access to the busses location at any time. This helped the company by increasing the security given to their clients of a more secure trip .', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-5xl font-bold text-purple-500 text-left", id:"3",link:"https://github.com/jromerooo2/google3.0"
             },
         ])
 

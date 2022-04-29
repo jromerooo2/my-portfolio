@@ -3,7 +3,8 @@ interface Work{
     description:string,
     image:string,
     color:string,
-    id: string
+    id: string,
+    link:string
 }
 
 export default Work;

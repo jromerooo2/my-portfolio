@@ -9,10 +9,10 @@
 
 <template>
 <div class="container-app">
-            <section class="h-screen one">
+            <section class="one ">
                     <Header />
-                    <div class="flex flex-col items-center mx-auto 2xl:mt-10">  
-                        <HelloWorld msg="Hello , I'm Juan Romero👋. &#160;&#160;&#160;" />
+                    <div class="bg-red-100 flex flex-col items-center mx-auto 2xl:mt-10">  
+                        <HelloWorld msg="Sup , I'm Juan Romero👋." />
                     </div>
             </section>
             <div class="two">
@@ -38,18 +38,7 @@ html{
     height:100%;
     width:100%;
     margin: 0px;
-}
-@media screen and (min-width: 1024px) {
-    section{
-        scroll-snap-align: start;
-    }
-    .container-app{
-        height:100vh;
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
-    }
-}
-    
+}    
 
 h1{
   font-family: "Poppins", sans-serif;

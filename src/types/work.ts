@@ -1,5 +1,6 @@
 interface Work{
     title:string,
+    role:string,
     description:string,
     image:string,
     color:string,

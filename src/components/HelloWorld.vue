@@ -10,13 +10,13 @@ import { defineComponent,Prop } from "vue";
 </script>
 
 <template class="">
-  <div class="md:flex items-center justify-center h-96 ">
+  <div class="md:flex items-center justify-center">
     <div>
-      <img class="collant mx-auto my-2" alt="Vue logo" src="../assets/holis.png" />
+      <img class="block collant mx-auto my-2" alt="Vue logo" src="../assets/holis.png" />
     </div>
-    <div>
+    <div class="text-center">
         <h1 class="h1 text-3xl text-center	mb-2 ">{{ msg }}</h1>
-        <h1 class="text-4xl font-bold abt text-left p-5">A Junior high school student from El Salvador<br>
+        <h1 class="text-4xl font-bold abt  p-5">A Junior high school student from El Salvador<br>
     Interested in <span class="text-blue-500">Software Dev</span>, <span class="text-green-500">CyberSecurity</span><br> and<span class="text-purple-500"> Design</span>.</h1>
     </div>
   </div>

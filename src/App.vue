@@ -5,19 +5,23 @@
     import Header from './components/Header.vue'
     import WIVD from './components/WIVD.vue'
     import Contact from './components/Contact.vue'
+    import Exp from './components/Exp.vue'
 </script>
 
 <template>
-<div class="container-app">
-            <section class="one ">
+<div class="container-app space-y-28">
+            <section class="one">
                     <Header />
-                    <div class="bg-red-100 flex flex-col items-center mx-auto 2xl:mt-10">  
+                    <div class="bg-blue-100 flex flex-col items-center mx-auto 2xl:mt-10">  
                         <HelloWorld msg="Sup , I'm Juan Romero👋." />
                     </div>
             </section>
             <div class="two">
                 <WIVD  />
             </div>
+            <section>
+                <Exp />
+            </section>
             <section class="three">
                 <Contact />
             </section>

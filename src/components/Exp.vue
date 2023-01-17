@@ -8,7 +8,7 @@
         </div>  
         <div class="">
             <div class="md:grid block md:grid-cols-3 md:items-center p-7 md:p-0" v-for="exp in exps" :v-key="exp.id">
-                <div>
+                <div >
                     <img class="md:ml-auto mx-auto block h-60 mb-2" :src="exp.pic" alt="">
                 </div>
                 <div class="col-span-2 text-justify">
@@ -16,7 +16,6 @@
                     <p class="text-small text-gray-400">{{exp.time}}</p>
                     <p class="md:w-2/3">{{exp.desc}}</p>
                 </div>
-
             </div>
         </div>
 
@@ -43,9 +42,9 @@ const exps = ref<Experience[]>([
                desc:"Code2College is a program that targets those students who have previous coding experience and are ready to be challenged further. Through project-based learning and the usage of different Frameworks."   
             },
             {
-                id:1,title:"Senior C.S./Math Leader", time:"2019 - 2023",
+                id:1,title:"2x National Hackathon awards", time:"2021 - 2022",
                 pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/exp.png',
-               desc:"Currently working on some ACE projects with GILBANE staff as mentors to present to a national ACE competition for High Schoolers , working on the development of problem-solving, engineering skills and receiving the mentorship of many talented engineers working in GILBANE and associates."            
+               desc:"Worked on Locus and Sacculum (projects listed above) experiencing with multiple Computer Science challenges and tools to make the projects possible."            
             },
         ])
 export default defineComponent({

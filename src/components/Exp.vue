@@ -12,7 +12,7 @@
                         <img class="md:ml-auto mx-auto block h-60 mb-2" :src="exp.pic" alt="">
                     </div>
                 <div class="col-span-2 text-justify">
-                    <div class="md:flex items-center space-x-4">
+                    <div class="md:flex items-center space-x-4 my-3 space-y-3 md:space-y-0 md:my-0">
                         <h1 class="font-bold text-3xl md:text-justify text-center">{{exp.title}}</h1>
                         <div class="flex items-center justify-center md:p-3 p-0 space-x-4">
                             <p class="text-small text-gray-400">{{exp.time}}</p>

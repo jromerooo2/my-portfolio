@@ -5,7 +5,7 @@ import { toNumber } from '@vue/shared'
 const links = {
             1:'https://www.github.com/jromerooo2',
             2:'https://www.twitter.com/jromerooo2',
-            3:'https://juanromero.xyz/src/assets/resume.pdf',
+            3:'https://juanromero.xyz/assets/resume.pdf',
 }
 
 export default defineComponent({

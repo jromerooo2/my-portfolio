@@ -1,16 +1,21 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { toNumber } from '@vue/shared'
+
+const links = {
+            1:'https://www.github.com/jromerooo2',
+            2:'https://www.twitter.com/jromerooo2',
+            3:'https://juanromero.xyz/src/assets/resume.pdf',
+}
 
 export default defineComponent({
     name: 'Header',
+    data(){
+        return {links}
+    },
     methods: {
         redirect(num: number) {
-            if (num === 1) {
-               window.open('https://www.github.com/jromerooo2', '_blank')?.focus();
-
-            } else if (num === 2) {
-               window.open('https://www.twitter.com/jromerooo2', '_blank')?.focus();
-            }
+            window.open(this.links[num as keyof typeof toNumber], '_blank')?.focus()
     },
     }
 })
@@ -19,11 +24,17 @@ export default defineComponent({
 
 <template>
     <div class="md:flex justify-evenly md:space-x-5 md:p-5">   
-        <div class="flex items-center justify-center group cursor-pointer space-x-3 md:space-x-5">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 group-hover:text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <p class="md:mx-6 font-bold group-hover:text-yellow-600">hellojuancho75@gmail.com</p>
+        <div class="flex items-center justify-center group cursor-pointer space-x-3 md:space-x-5"
+        @click="redirect(3)">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notebook h-8 w-8 group-hover:text-yellow-600" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-11a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1m3 0v18" />
+                <line x1="13" y1="8" x2="15" y2="8" />
+                <line x1="13" y1="12" x2="15" y2="12" />
+                </svg>
+                <p class="group-hover:text-yellow-600">Resume</p>
+
         </div>
         <div class="flex items-center justify-center group cursor-pointer space-x-3 md:space-x-5 my-5 md:mt-0">
                 <a @click="redirect(1)" class="hover:text-purple-600" to="github.com/jromerooo2" target="_blank">

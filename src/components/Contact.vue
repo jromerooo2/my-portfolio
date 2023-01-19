@@ -1,7 +1,7 @@
 <template lang="">
     <div class="md:p-0 mb-28 h-96 flex flex-col justify-center items-center text-center">
         <div class="flex flex-col md:mb-14">
-            <h1 class="text-black font-bold text-5xl">Let's Talk 🗣️. </h1>
+            <h1 class="text-black font-bold text-7xl md:text-5xl text-yellow-600">Sold yet? </h1>
             <p class="">
                 Here you can find how to connect with me 🔗.
             </p> 

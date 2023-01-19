@@ -1,7 +1,7 @@
 <template lang="">
     <div class="md:p-0 mb-28 flex flex-col justify-center items-center text-center">
         <div class="flex flex-col md:mb-14 space-y-4">
-            <h1 class="text-black font-bold text-5xl">My Experience. </h1>
+            <h1 class="text-black font-bold md:text-7xl text-6xl">My Experience. </h1>
             <p class="">
                 Awards/Programs/Education.
             </p> 

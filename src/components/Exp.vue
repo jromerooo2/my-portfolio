@@ -12,13 +12,16 @@
                         <img class="md:ml-auto mx-auto block h-60 mb-2" :src="exp.pic" alt="">
                     </div>
                 <div class="col-span-2 text-justify">
-                    <div class="md:flex items-center space-x-7 space-y-7">
+                    <div class="md:flex items-center space-x-4">
                         <h1 class="font-bold text-3xl md:text-justify text-center">{{exp.title}}</h1>
                         <div class="flex items-center justify-center md:p-3 p-0 space-x-4">
                             <p class="text-small text-gray-400">{{exp.time}}</p>
-                            <p :class="exp.location_color" class="rounded-full py-2 px-3" >
-                                <img  :src="exp.location_src" />
-                                {{ exp.location }}
+                            <p :class="exp.location_color" class="rounded-full py-2 px-3 flex items-center space-x-2" >
+                                <img class="h-4" :src="exp.location_src" />
+                                
+                                <span>
+                                    {{ exp.location }}
+                                </span>
                             </p>
                         </div>
                     </div>
@@ -37,25 +40,25 @@ import Experience from "../types/exp"
 const exps = ref<Experience[]>([
             {
                id:1,title:"Engineering Intern", time:"2022 - 2023",
-               location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/us.png", location_color:"bg-red-300",
+               location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/us.png", location_color:"bg-red-200",
                pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/engineer.png',
                desc:"Currently working on some ACE projects with GILBANE staff as mentors to present to a national ACE competition for High Schoolers , working on the development of problem-solving, engineering skills and receiving the mentorship of many talented engineers working in GILBANE and associates."
             },
             { 
                 id:3,title:"Code2College Program", time:"2022 - 2023",
-                location:"United States - Virtual.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/us.png", location_color:"bg-red-300",
+                location:" - Virtual.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/us.png", location_color:"bg-red-200",
                 pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/love.png',
                desc:"Code2College is a program that targets those students who have previous coding experience and are ready to be challenged further. Through project-based learning and the usage of different Frameworks."   
             },
             {
                 id:2,title:"Technical Certification", time:"2019 - 2022",
-                location:"El Salvador - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/sv.png", location_color:"bg-blue-300",
+                location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/sv.png", location_color:"bg-blue-200",
                 pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/meditate.png',
                desc:"Technical Certification in Software Engineering and Computer Science @ Instituto Tecnico Ricaldone, where I was taught how to develop applications for different platforms with Software Architecture patterns, Algorithms and Industry-Level skills."            
             },
             {
                 id:4,title:"2x National Hackathon awards", time:"2021 - 2022",
-                location:"El Salvador - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/sv.png", location_color:"bg-blue-300",
+                location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/sv.png", location_color:"bg-blue-200",
                 pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/exp.png',
                desc:"Worked on Locus and Sacculum (projects listed above) experiencing with multiple Computer Science challenges and tools to make the projects possible."            
             },

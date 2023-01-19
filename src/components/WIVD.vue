@@ -32,8 +32,8 @@ export default defineComponent({
 </script>
 
 <template class="">
-    <section class="md:flex mt-14 md:mt-0 ">
-            <div class="relative md:sticky mt-24 md:mt-0 md:flex flex-col md:h-14 items-center justify-center w-full md:min-h-screen top-0">
+    <section class="md:flex mt-14 md:mt-0">
+            <div class="relative md:sticky mt-24 md:mt-0 md:flex flex-col md:h-14 items-center justify-center w-full md:min-h-screen top-0 shrink">
                 <img class="collant mx-auto my-2 img " alt="Memoji Computer" src="../assets/dev.png" />
                 <h1 class="md:block hidden text-4xl font-bold abt text-center md:p-5 text-blue-900">Some of the stuff <br>I've Worked on.</h1>
                 <h1 class="font-bold text-2xl block sm:hidden text-center mt-8">Scroll to see my work!</h1>

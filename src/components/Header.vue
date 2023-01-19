@@ -23,7 +23,7 @@ export default defineComponent({
 
 
 <template>
-    <div class="md:flex justify-evenly md:space-x-5 md:p-5">   
+    <div class="flex justify-evenly md:space-x-5 md:p-5">   
         <div class="flex items-center justify-center group cursor-pointer space-x-3 md:space-x-5"
         @click="redirect(3)">
 

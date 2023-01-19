@@ -11,7 +11,7 @@ export default defineComponent({
     setup() {
         const works = ref<work[]>([
             {
-                title: 'Robotics & Programming Club',role:"Founder", description: `As part of my contribution to the STEM world I created a programming club in my high school where I teach students about programming and algorithms.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hfdev.png',color:"text-5xl font-bold text-blue-900 text-left",id:"1",link:"https://github.com/homewood-flossmoor-dev"
+                title: 'Robotics & Programming Club',role:"Founder", description: `As part of my contribution to the STEM world I created a programming club in my high school where I teach students about programming and algorithms, while also including robotics and computer science research.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hfdev.png',color:"text-5xl font-bold text-blue-900 text-left",id:"1",link:"https://github.com/homewood-flossmoor-dev"
             },
             {
                 title: 'Google Clone',role:"Practice project", description: `I made a google clone but with the famous character "Hatsune Miku" as logo for the search bar using google's API to handle searchs. As google has a paid API I used a dummy info system to not exceed google's quota per API key. `, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hatsune.png',color:"text-5xl font-bold bg-gradient-to-r from-red-400 to-yellow-600 text-transparent bg-clip-text mb-3 text-left", id:"4", link:"https://hatsunexgoogle.vercel.app/",

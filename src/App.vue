@@ -13,7 +13,7 @@
             <section class="one">
                     <Header />
                     <div class="bg-blue-100 flex flex-col items-center mx-auto 2xl:mt-10">  
-                        <HelloWorld msg="Sup , I'm Juan Romero👋." />
+                        <HelloWorld msg="Hey , I'm Juan Romero👋." />
                     </div>
             </section>
             <div class="two">

@@ -41,7 +41,7 @@ const exps = ref<Experience[]>([
             {
                id:1,title:"RSI - (Research Science Institute)", time:"2023",
                location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/us.png", location_color:"bg-red-200",
-               pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/engineer.png',
+               pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/rsi.png',
                desc:"Selected to be part of 100 world's most accomplished high school students that gather at the Massachusetts Institute of Technology (MIT) for the Research Science Institute (RSI). RSI is a summer science & engineering program to combine on-campus course work in scientific theory with off-campus work in science and technology research."
             },
             {

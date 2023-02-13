@@ -39,25 +39,31 @@ import Experience from "../types/exp"
 
 const exps = ref<Experience[]>([
             {
-               id:1,title:"Engineering Intern", time:"2022 - Present",
+               id:1,title:"RSI - (Research Science Institute)", time:"2023",
+               location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/us.png", location_color:"bg-red-200",
+               pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/engineer.png',
+               desc:"Selected to be part of 100 world's most accomplished high school students that gather at the Massachusetts Institute of Technology (MIT) for the Research Science Institute (RSI). RSI is a summer science & engineering program to combine on-campus course work in scientific theory with off-campus work in science and technology research."
+            },
+            {
+               id:2,title:"Engineering Intern", time:"2022 - Present",
                location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/us.png", location_color:"bg-red-200",
                pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/engineer.png',
                desc:"Currently working on some ACE projects with GILBANE staff as mentors to present to a national ACE competition for High Schoolers , working on the development of problem-solving, engineering skills and receiving the mentorship of many talented engineers working in GILBANE and associates."
             },
             {
-                id:2,title:"Technical Certification", time:"2019 - 2022",
+                id:3,title:"Technical Certification", time:"2019 - 2022",
                 location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/sv.png", location_color:"bg-blue-200",
                 pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/meditate.png',
                desc:"Technical Certification in Software Engineering and Computer Science @ Instituto Tecnico Ricaldone, where I was taught how to develop applications for different platforms with Software Architecture patterns, Algorithms and Industry-Level skills."            
             },
             { 
-                id:3,title:"Code2College Program", time:"2022 - Present",
+                id:4,title:"Code2College Program", time:"2022 - Present",
                 location:" - Virtual.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/us.png", location_color:"bg-red-200",
                 pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/love.png',
                desc:"Code2College is a program that targets those students who have previous coding experience and are ready to be challenged further. Through project-based learning and the usage of different Frameworks."   
             },
             {
-                id:4,title:"2x National Hackathon awards", time:"2021 - 2022",
+                id:5,title:"2x National Hackathon awards", time:"2021 - 2022",
                 location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/sv.png", location_color:"bg-blue-200",
                 pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/exp.png',
                desc:"Worked on Locus and Sacculum (projects listed above) experiencing with multiple Computer Science challenges and tools to make the projects possible."            

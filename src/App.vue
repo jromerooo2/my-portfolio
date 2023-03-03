@@ -9,24 +9,7 @@
 </script>
 
 <template>
-<div class="container-app space-y-28">
-            <section class="one">
-                    <Header />
-                    <div class="bg-blue-100 flex flex-col items-center mx-auto 2xl:mt-10">  
-                        <HelloWorld msg="Hey , I'm Juan Romero👋." />
-                    </div>
-            </section>
-            <div class="two">
-                <WIVD  />
-            </div>
-            <section>
-                <Exp />
-            </section>
-            <section class="three">
-                <Contact />
-            </section>
-</div>                
-
+<RouterView />               
 </template>
 
 <style>

@@ -44,7 +44,7 @@ export default defineComponent({
                 <line x1="13" y1="8" x2="15" y2="8" />
                 <line x1="13" y1="12" x2="15" y2="12" />
                 </svg>
-                <p class="group-hover:text-yellow-600">Notes</p>
+                <p class="group-hover:text-yellow-600">Research  Notes</p>
 
         </RouterLink>
         <div class="flex items-center justify-center group cursor-pointer space-x-3 md:space-x-5 my-5 md:mt-0">

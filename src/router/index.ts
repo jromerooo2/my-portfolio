@@ -4,24 +4,14 @@ import Home from '../views/Home.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
     path: '/notes',
-    name: 'Fact',
+    name: 'notes',
     component: () => import('../views/Notes.vue')
   }
-  // {
-  //   path: '/facts',
-  //   name: 'FactList',
-  //   component: () => import('../views/FactList.vue')
-  // },
-  // {
-  //   path: '/:catchAll(.*)',
-  //   name: 'PageNotFound',
-  //   component: () => import('../views/PageNotFound.vue')
-  // }
 ]
 
 const router = createRouter({

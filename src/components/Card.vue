@@ -13,7 +13,7 @@
       </p>
   
       <a href="#">
-        <h3 class="mt-0.5 text-lg text-gray-900 font-bold">
+        <h3 class="mt-0.5 text-lg text-gray-900 font-bold text-blue-400nonyeah">
           {{ title }}
         </h3>
       </a>

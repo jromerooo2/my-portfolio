@@ -13,7 +13,6 @@
     </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
 import Card from './Card.vue';
 export default {
   name: 'CardLayout',
@@ -29,7 +28,7 @@ export default {
         },
         {
             title:"Research Material: Artificial Intelligence and all the Science behind it",
-            description:"In this space I've compiled all the information that I used to write my research paper at MIT during Summer 2023.",
+            description:"In this space I've compiled all the information that I used to write my research paper @ MIT during Summer 2023.",
             image:"https://plat.ai/wp-content/uploads/aibuild.jpg",
             date:"2021-09-01",
             link:"https://docsjromero.notion.site/docsjromero/Research-c42e0c7e1e9b471192798420024f5aad"

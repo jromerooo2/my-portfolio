@@ -1,7 +1,7 @@
 <template>
     <Header />
-    <div class="space-y-5">
-      <h1 class="text-center text-3xl font-bold">My Research Notes/Papers .</h1>
+    <div class="space-y-5 mt-6">
+      <h1 class="text-center text-5xl font-bold text-green-600">My Research Notes/Papers .</h1>
       <p class="text-center text-gray-500">These are some of the research notes and papers that I've writtend throughout the years.  </p>
       <CardLayout />
     </div>

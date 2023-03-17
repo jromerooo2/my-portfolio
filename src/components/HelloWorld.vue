@@ -16,7 +16,7 @@ import { defineComponent,Prop } from "vue";
     </div>
     <div class="text-center">
         <h1 class="h1 text-3xl text-center	mb-2 ">{{ msg }}</h1>
-        <h1 class="text-4xl font-bold abt  p-5 md:block hidden ">A Junior High School student<br>
+        <h1 class="text-4xl font-bold abt  p-5 md:block hidden ">A High School Student<br>
     Interested in <span class="text-blue-500">Software Dev</span>, <span class="text-green-500">Engineering</span><br> and<span class="text-purple-500"> Design</span>.</h1>
     </div>
   </div>

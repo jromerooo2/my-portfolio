@@ -52,7 +52,7 @@ export default defineComponent({
               hover:text-blue-400
             "
             >
-            Juanito Romero
+            Juan Romero
           </router-link>
           <!-- Mobile menu button -->
           <div @click="showMenu = !showMenu" class="flex md:hidden">

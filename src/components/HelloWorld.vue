@@ -25,7 +25,7 @@ import { defineComponent,Prop } from "vue";
       Hey, I am Juan Romero. A MechE student and all things stem afficionado. I love tech, finance and science. One of my favorite things to do is to hack into random projects to learn something new!.
     </p>
     <p>
-      You can learn more <a class="text-blue-400">about me</a> and take a look at some of my <a class="text-blue-400">experience</a> and <a href="https://medium.com/@jromerooo2" class="text-blue-400">blog posts</a> as well.
+      You can learn more <RouterLink to="/aboutme" class="text-blue-400" >about me</RouterLink> and take a look at some of my <RouterLink to="/exp" class="text-blue-400">experience</RouterLink> and <a href="https://medium.com/@jromerooo2" class="text-blue-400">blog posts</a> as well.
     </p>
   </div>
 </template>

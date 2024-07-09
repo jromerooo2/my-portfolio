@@ -27,11 +27,9 @@ export default defineComponent({
     },
 })
 </script>
-
-
 <template >
   <div>
-    <div class="bg-gray-100">
+    <div class="">
       <nav
         class="
           container
@@ -41,8 +39,8 @@ export default defineComponent({
           md:flex md:justify-between md:items-center
         "
       >
-        <div class="flex items-center justify-between">
-          <router-link
+        <div class="flex items-center justify-end">
+          <!-- <router-link
             to="/"
             class="
               text-xl
@@ -53,7 +51,7 @@ export default defineComponent({
             "
             >
             Juan Romero
-          </router-link>
+          </router-link> -->
           <!-- Mobile menu button -->
           <div @click="showMenu = !showMenu" class="flex md:hidden">
             <button

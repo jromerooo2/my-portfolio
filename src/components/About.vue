@@ -5,14 +5,34 @@
             <h1 class="text-xl font-bold text-start">
                 Hey - I'm Juan.
             </h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum consectetur molestias quia iusto eos, officiis, cupiditate distinctio a sapiente suscipit similique architecto voluptate eaque? Optio inventore adipisci nemo. Aut, maiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum consectetur molestias quia iusto eos, officiis, cupiditate distinctio a sapiente suscipit similique architecto voluptate eaque? Optio inventore adipisci nemo. Aut, maiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum consectetur molestias quia iusto eos,
+            <p class="text-justify">
+                I am a Mechanical Engineering student and STEM enthusiast with a strong background in technology, and computer science. I am always looking for things to hack into. I enjoy all types of sports. I consistently follow soccer, basketball, surfing, and football.
             </p>
-            <ul class="list-disc">
-                <li>Coffee</li>
-                <li>Tea</li>
-                <li>Milk</li>
-            </ul>
+            <hr class="border-t border-gray-300 my-4">
+            <div class="space-y-6">
+            <div>
+                    <h2 class="font-bold text-lg">
+                        I am currently reading 📚:
+                    </h2>
+                    <ul class="list-disc">
+                        <li>Starry Messenger - Neil deGrasse Tyson</li>
+                        <!-- <li>Algorithmic Trading</li>
+                        <li>Web Development</li> -->
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="font-bold text-lg">
+                        I could talk for hours about 💬:
+                    </h2>
+                    <ul class="list-disc">
+                       <li>Algorithmic Trading</li>
+                       <li>Mathematics</li>
+                       <li>Finance</li>
+                        <li>Web Development</li>
+                        <li>Computer Science</li> 
+                    </ul>
+            </div>
+            </div>
         </div>
     </div>
 </template>
@@ -29,3 +49,13 @@ export default defineComponent({
     }
 })
 </script>
+<style>
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color:#d2d2d0;
+  height: 1px;
+}
+</style>

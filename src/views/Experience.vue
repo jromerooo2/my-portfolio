@@ -1,5 +1,5 @@
 <template>
-    <div class="md:px-64 px-2 space-y-7">
+    <div class="md:px-56 px-2 space-y-7">
         <Header />
         <WIVD />
         <Exp />

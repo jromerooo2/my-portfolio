@@ -11,13 +11,13 @@
                 Awards/Programs/Education.
             </p> 
         </div>
-        <div class="">
-            <div class="md:grid block md:grid-cols-3 md:items-center p-7 md:p-0" v-for="exp in exps" :v-key="exp.id">
-                    <div>
-                        <img class="md:ml-auto mx-auto block h-60 mb-2" :src="exp.pic" alt="">
-                    </div>
-                <div class="col-span-2 text-justify">
-                    <div class="md:flex items-center space-x-4 my-3 space-y-3 md:space-y-0 md:my-0">
+        <div class=""  v-for="exp in exps" :v-key="exp.id">
+            <div class="md:grid block md:grid-cols-3 md:items-center p-7 md:p-0 mb-9">
+                <div>
+                    <img class="md:ml-auto mx-auto block h-60 mb-2" :src="exp.pic" alt="">
+                </div>
+                <div class="col-span-2 text-justify space-y-4">
+                    <div class="flex flex-col items-start space-y-7">
                         <h1 class="font-bold text-xl md:text-justify text-center">{{exp.title}}</h1>
                         <div class="flex items-center justify-center md:p-3 p-0 space-x-4">
                             <p class="text-small text-gray-400">{{exp.time}}</p>
@@ -32,8 +32,8 @@
                     </div>
                     <p class="md:w-2/3 text-small">{{exp.desc}}</p>
                 </div>
-                
             </div>
+            <hr class="border-t border-gray-300 my-4">
         </div>
         <Contact />
     </div>
@@ -76,3 +76,13 @@ export default defineComponent({
 
 })
 </script>
+<style>
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 100%;               
+  background-color:#d2d2d0;
+  height: 1px;
+}
+</style>

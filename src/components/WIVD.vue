@@ -11,14 +11,14 @@ export default defineComponent({
     setup() {
         const works = ref<work[]>([
             { 
-                title: 'Sacculum Systems',role:"Software Developer and Researcher", description: `Sacculum is a free web and desktop tool designed to automate the hiring process and enhance job opportunities, especially in El Salvador, where the process is often tedious and opportunities are scarce. Integrated by over 10 corporations, it helped us win 2nd place in a National Computer Science hackathon.`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/sac.svg',color:"text-2xl font-bold text-green-500 text-left", id:"2",link:"https://github.com/jromerooo2/portal-bolsa-ricaldone"
+                title: 'Sacculum Systems',role:"Software Developer and Researcher", description: `Sacculum is a free web and desktop tool designed to automate the hiring process and enhance job opportunities, especially in El Salvador, where the process is often tedious and opportunities are scarce. Integrated by over 10 corporations, it helped us win 2nd place in a National Computer Science hackathon.`,image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/dev/src/assets/sac.svg',color:"text-xl font-bold text-green-500 text-left", id:"2",link:"https://github.com/jromerooo2/portal-bolsa-ricaldone"
             },
             
             {
-                title: 'Locus Systems',role:"Software Developer and Researcher", description: 'Locus is a real-time location platform aimed at enhancing public transportation security in El Salvador. I served as a software developer, engineering the Webflow and communications using RTC protocols and sockets. This project earned my team 3rd place in a national hackathon.', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/ls.png',color:"text-2xl font-bold text-purple-500 text-left", id:"3",link:"https://github.com/jromerooo2/real-time-l18n"
+                title: 'Locus Systems',role:"Software Developer and Researcher", description: 'Locus is a real-time location platform aimed at enhancing public transportation security in El Salvador. I served as a software developer, engineering the Webflow and communications using RTC protocols and sockets. This project earned my team 3rd place in a national hackathon.', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/dev/src/assets/ls.svg',color:"text-xl font-bold text-purple-500 text-left", id:"3",link:"https://github.com/jromerooo2/real-time-l18n"
             },
             {
-                title: 'Programming Club',role:"Founder", description: `As part of my contribution to the STEM world I created a programming club in my high school where I teach students about programming and algorithms, while also including robotics and computer science research.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hfdev.png',color:"text-2xl font-bold text-blue-900 text-left",id:"1",link:"https://github.com/homewood-flossmoor-dev"
+                title: 'Programming Club',role:"Founder", description: `As part of my contribution to the STEM world I created a programming club in my high school where I teach students about programming and algorithms, while also including robotics and computer science research.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hfdev.png',color:"text-xl font-bold text-blue-900 text-left",id:"1",link:"https://github.com/homewood-flossmoor-dev"
             },
         ])
 
@@ -30,7 +30,7 @@ export default defineComponent({
 
 <template class="">
     <div class="">
-        <h1 class="font-bold text-xl">
+        <h1 class="font-bold text-2xl">
             What I'm up to
         </h1>
         <p>

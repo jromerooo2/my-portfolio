@@ -1,7 +1,5 @@
 <template class="" lang="">
-    <div>
-        <h1>Currently Working on:</h1>
-    </div>
+
     <div class="md:p-0 mb-28 flex flex-col justify-center items-center text-center">
         <div class="flex flex-col md:mb-14 space-y-4">
             <h1 class="text-black font-bold text-5xl">My Experience. </h1>
@@ -50,7 +48,7 @@ const exps = ref<Experience[]>([
                id:1,title:"RSI - (Research Science Institute)", time:"2023",
                location:" - In Person.",location_src:"https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/us.png", location_color:"bg-red-200",
                pic:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/rsi.png',
-               desc:"Selected as one of the 100 most accomplished high school students worldwide, I attended the Research Science Institute (RSI) at MIT, a free summer program that blends on-campus scientific theory coursework with science and technology research."
+               desc:"Selected as one of the 100 most accomplished high school students worldwide, I attended the Research Science Institute (RSI) at MIT, a free summer program that blends on-campus scientific theory coursework with science and technology research. I worked at the MIT Media Lab under Dr. Sharifa Algowhinem in the development of an artificial intelligence capable of detecting symptoms of depression, anxiety, etc."
             },
             {
                id:2,title:"Engineering Intern", time:"2022 - 2024",

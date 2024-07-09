@@ -28,7 +28,7 @@ export default defineComponent({
 })
 </script>
 <template >
-  <div>
+  <div class="sticky top-0 rounded-xl">
     <div class="">
       <nav
         class="
@@ -36,10 +36,10 @@ export default defineComponent({
           px-6
           py-8
           mx-auto
-          md:flex md:justify-between md:items-center
+          md:flex md:justify-center md:items-center
         "
       >
-        <div class="flex items-center justify-end">
+        <div class="flex items-center justify-center">
           <!-- <router-link
             to="/"
             class="
@@ -83,6 +83,7 @@ export default defineComponent({
             md:flex
             md:space-y-0
             md:flex-row
+            md:justify-center
             md:items-center
             md:space-x-10
             md:mt-0
@@ -115,7 +116,7 @@ export default defineComponent({
                 </p>
             </RouterLink>
           </li>
-          <li class="text-sm text-gray-800 font-bold hover:text-blue-400">
+          <li class="text-sm text-gray-800 font-bold hover:text-blue-200">
             <a class="flex items-center space-x-5" href="">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="34" height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -124,7 +125,7 @@ export default defineComponent({
                 <line x1="12" y1="4" x2="12" y2="16" />
                 </svg>
                 <p>
-                    Download Resume
+                    Resume
                 </p>
             </a>
           </li>

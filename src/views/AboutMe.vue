@@ -1,5 +1,5 @@
 <template>
-    <div class="px-16">
+    <div class="md:px-96 px-6">
         <Header />
         <About />
         <Contact />

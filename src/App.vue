@@ -9,6 +9,9 @@
 </script>
 
 <template>
+<div>
+
+</div>
 <RouterView />               
 </template>
 
@@ -24,7 +27,7 @@
 html{
     height:100%;
     width:100%;
-    margin: 0px;
+    padding: 4px;
 }    
 
 h1{

@@ -18,7 +18,7 @@ export default defineComponent({
                 title: 'Locus Systems',role:"Software Developer and Researcher", description: 'Locus is a real-time location platform aimed at enhancing public transportation security in El Salvador. I served as a software developer, engineering the Webflow and communications using RTC protocols and sockets. This project earned my team 3rd place in a national hackathon.', image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/dev/src/assets/ls.svg',color:"text-xl font-bold text-purple-500 text-left", id:"3",link:"https://github.com/jromerooo2/real-time-l18n"
             },
             {
-                title: 'Programming Club',role:"Founder", description: `As part of my contribution to the STEM world I created a programming club in my high school where I teach students about programming and algorithms, while also including robotics and computer science research.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hfdev.png',color:"text-xl font-bold text-blue-900 text-left",id:"1",link:"https://github.com/homewood-flossmoor-dev"
+                title: 'Programming Club',role:"Founder", description: `Looking for a community to join, I noticed the lack of a space for students to engage in Computer Science discussions/learning. So I decided to create a club where I taught students about programming and algorithms, while also including robotics and computer science research.`, image:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/hfdev.png',color:"text-xl font-bold text-blue-900 text-left",id:"1",link:"https://github.com/homewood-flossmoor-dev"
             },
         ])
 

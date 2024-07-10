@@ -1,21 +1,17 @@
 <template>
-    <div class="container-app space-y-28">
-                <section class="one">
+  <div class="flex flex-col items-center justify-center">
+    <div class="container-app md:px-96 px-6">
+                <section class="one flex flex-col space-y-9">
                         <Header />
-                        <div class="bg-blue-100 flex flex-col items-center mx-auto 2xl:mt-10">  
-                            <HelloWorld msg="Hey , I'm Juan Romero👋." />
+                        <div class="flex flex-col items-start mx-auto 2xl:mt-10">  
+                            <HelloWorld msg="Juan Romero" />
                         </div>
                 </section>
-                <div class="two">
-                    <WIVD  />
-                </div>
-                <section>
-                    <Exp />
-                </section>
-                <section class="three">
-                    <Contact />
-                </section>
-    </div>
+      </div>
+          <section class="three">
+            <Contact />
+          </section>
+  </div>
 </template>
 
 <script lang="ts">

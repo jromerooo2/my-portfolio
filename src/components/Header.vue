@@ -6,7 +6,7 @@ const links = {
             0:'/',
             1:'https://www.github.com/jromerooo2',
             2:'https://www.twitter.com/jromerooo2',
-            3:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/master/src/assets/resume.pdf',
+            3:'https://raw.githubusercontent.com/jromerooo2/my-portfolio/dev/src/assets/resume.pdf',
             4:"/notes"
 }
 
@@ -15,7 +15,9 @@ export default defineComponent({
     data(){
         return {
             links,
-            showMenu: false}
+            showMenu: false,
+            scrolled: false,
+          }
     },
     methods: {
     redirect(num: number) {
@@ -24,25 +26,34 @@ export default defineComponent({
     toggleNav: function () {
         this.showMenu = !this.showMenu;
       },
+      handleScroll() {
+      this.scrolled = window.scrollY > 50;
+    },
+    },
+    mounted() {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.handleScroll);
     },
 })
 </script>
-
-
 <template >
-  <div>
-    <div class="bg-gray-100">
+  <div class="sticky top-0 ">
+    <div class="">
       <nav
+      :class="{'bg-blue-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-40': scrolled, 'bg-transparent': !scrolled}"
         class="
           container
           px-6
           py-8
           mx-auto
-          md:flex md:justify-between md:items-center
+          rounded-xl
+          md:flex md:justify-center md:items-center
         "
       >
-        <div class="flex items-center justify-between">
-          <router-link
+        <div class="flex items-center justify-center">
+          <!-- <router-link
             to="/"
             class="
               text-xl
@@ -53,7 +64,7 @@ export default defineComponent({
             "
             >
             Juan Romero
-          </router-link>
+          </router-link> -->
           <!-- Mobile menu button -->
           <div @click="showMenu = !showMenu" class="flex md:hidden">
             <button
@@ -85,13 +96,14 @@ export default defineComponent({
             md:flex
             md:space-y-0
             md:flex-row
+            md:justify-center
             md:items-center
             md:space-x-10
             md:mt-0
           "
         >
-          <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
-            <RouterLink to="/" class="flex items-center space-x-5">
+          <li class="text-sm font-bold text-gray-800 hover:text-blue-200">
+            <RouterLink to="/" class="flex items-center space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="34" height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <polyline points="5 12 3 12 12 3 21 12 19 12" />
@@ -103,8 +115,21 @@ export default defineComponent({
                 </p>
             </RouterLink>
           </li>
-          <li class="text-sm font-bold text-gray-800 hover:text-blue-400">
-            <RouterLink to="/notes" class="flex items-center space-x-5">
+          <li class="text-sm font-bold text-gray-800 hover:text-blue-200">
+            <RouterLink to="/aboutme" class="flex items-center space-x-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-circle" width="34" height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                <path d="M12 9h.01" />
+                <path d="M11 12h1v4h1" />
+              </svg>
+                <p>
+                    About Me
+                </p>
+            </RouterLink>
+          </li>
+          <li class="text-sm font-bold text-gray-800 hover:text-blue-200">
+            <RouterLink to="/exp" class="flex items-center space-x-2">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-news" width="34" height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11" />
@@ -113,12 +138,12 @@ export default defineComponent({
                 <line x1="8" y1="16" x2="12" y2="16" />
                 </svg>
                 <p>
-                    Notes
+                    Experience
                 </p>
             </RouterLink>
           </li>
-          <li class="text-sm text-gray-800 font-bold hover:text-blue-400">
-            <a class="flex items-center space-x-5" href="">
+          <li class="text-sm text-gray-800 font-bold hover:text-blue-200">
+            <a class="flex items-center space-x-2" target="_blank" href="https://raw.githubusercontent.com/jromerooo2/my-portfolio/dev/src/assets/resume.pdf">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="34" height="34" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
@@ -126,7 +151,7 @@ export default defineComponent({
                 <line x1="12" y1="4" x2="12" y2="16" />
                 </svg>
                 <p>
-                    Download Resume
+                    Resume
                 </p>
             </a>
           </li>

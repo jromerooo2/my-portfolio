@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FPGA VGA Pong Engine — Ari Manjikian</title>
+    <link rel="stylesheet" href="./projects.css" />
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-logo" href="../index.html">Ari <span>Manjikian</span></a>
+            <a class="nav-back" href="../index.html#projects">All Projects</a>
+        </div>
+    </nav>
+
+    <div class="page-wrap">
+
+        <!-- HERO -->
+        <header class="proj-hero">
+            <p class="proj-eyebrow">Hardware Design · Jan 2026 · SystemVerilog</p>
+            <h1 class="proj-title">FPGA VGA Pong Engine</h1>
+            <p class="proj-summary">
+                A fully hardware-implemented Pong game driving a real VGA monitor at 640×480@60Hz. Every pixel is
+                computed in real time from scan position and registered state.
+            </p>
+            <div class="proj-meta-row">
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Platform</span>
+                    <span class="proj-meta-value">Lattice iCE40HX1K</span>
+                </div>
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Language</span>
+                    <span class="proj-meta-value">SystemVerilog</span>
+                </div>
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Clock</span>
+                    <span class="proj-meta-value">25 MHz pixel / 99 MHz met</span>
+                </div>
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Date</span>
+                    <span class="proj-meta-value">January 2026</span>
+                </div>
+            </div>
+            <div class="tag-row">
+                <span class="tag">SystemVerilog</span>
+                <span class="tag">Lattice iCE40HX1K</span>
+                <span class="tag">VGA Controller</span>
+                <span class="tag">RTL Design</span>
+                <span class="tag">Timing Analysis</span>
+                <span class="tag">Combinational Logic</span>
+            </div>
+            <div class="proj-cta">
+                <a class="btn btn-primary" href="https://github.com/AriManjikian/FPGA_Projects" target="_blank">View on
+                    GitHub</a>
+                <a class="btn btn-secondary" href="../index.html#projects">← Back to Projects</a>
+            </div>
+        </header>
+
+        <!-- STATS -->
+        <section class="proj-section">
+            <p class="section-heading">Relevant Statistics</p>
+            <div class="stats-row">
+                <div class="stat-cell">
+                    <span class="stat-value">847</span>
+                    <span class="stat-label">LUTs Used</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-value">389</span>
+                    <span class="stat-label">Flip-Flops</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">BRAM Blocks</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-value">99 <span style="font-size:1.1rem">MHz</span></span>
+                    <span class="stat-label">Timing Met</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-value">4×</span>
+                    <span class="stat-label">Timing Margin</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-value">73<span style="font-size:1.1rem">%</span></span>
+                    <span class="stat-label">Logic Utilization</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- OVERVIEW -->
+        <section class="proj-section">
+            <p class="section-heading">Overview</p>
+            <div class="prose">
+                <p>
+                    This project implements a VGA-based game entirely in hardware using Verilog. Instead of relying on a
+                    CPU
+                    or framebuffer, pixel values are generated in real time from combinational logic driven by
+                    horizontal and
+                    vertical scan counters.
+                </p>
+                <p>
+                    I worked directly with the VGA protocol, including generating sync signals, managing timing
+                    constraints, and
+                    ensuring the design met pixel clock requirements on FPGA hardware. The system uses simple registers
+                    for
+                    game state, while all rendering logic is computed on the fly each cycle.
+                </p>
+                <p>
+                    Development involved synthesis and place-and-route using vendor tools, along with debugging timing
+                    and
+                    signal integrity issues that arise in real hardware designs.
+                </p>
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE -->
+        <section class="proj-section">
+            <p class="section-heading">Architecture</p>
+            <div class="prose">
+                <h4>VGA Controller</h4>
+                <p>
+                    The VGA timing is implemented using a pair of counters that define the raster scan. The system uses
+                    configurable timing parameters (typically 800×525 total for 640×480@60Hz) to generate scan
+                    coordinates.
+                </p>
+
+                <h4>Combinational Renderer</h4>
+                <p>
+                    Each frame, pixel color is computed from the current scan position and the registered game state.
+                    The renderer evaluates paddle, ball, boundary, and background regions using simple comparator logic,
+                    with priority encoding selecting the visible pixel.
+                </p>
+
+                <h4>Game Logic</h4>
+                <p>
+                    Ball position, velocity, and paddle positions are stored in registers and updated once per vertical
+                    sync pulse, effectively operating at the display refresh rate.
+                </p>
+            </div>
+
+            <div class="gallery" style="margin-top:1.8rem;">
+                <div class="gallery-row cols-1">
+                    <div class="img-frame">
+                        <img src="/assets/pong_diagram.png" alt="">
+                        <div class="img-caption">Fig 1. Top-level block diagram</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section class="proj-section">
+            <p class="section-heading">Gallery</p>
+            <div class="gallery">
+                <div class="gallery-row">
+                    <div class="img-frame">
+                        <div class="img-placeholder tall">
+                            <span>Photo — FPGA on monitor</span>
+                        </div>
+                        <div class="img-caption">Fig 2. Live gameplay output on VGA display</div>
+                    </div>
+                    <div class="img-frame">
+                        <img src="/assets/vga_waveform.png" alt="">
+                        <div class="img-caption">Fig 3. VGA timing signals</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFLECTIONS -->
+        <section class="proj-section">
+            <p class="section-heading">Reflections</p>
+            <div class="prose">
+                <p>
+                    This project gave me hands-on experience distinguishing between sequential and structural thinking
+                    in hardware design.
+                    Instead of just writing step-by-step procedures, I learned how to define a system of logic that
+                    operates continuously and in parallel.
+                </p>
+                <p>
+                    Timing was a major learning challenge. I became proficient in using Lattice’s synthesis and
+                    place-and-route tools to ensure all combinational paths met the 10 ns pixel clock requirement.
+                    This involved adding timing constraints, analyzing critical paths, and iterating on logic depth to
+                    reach timing closure at 99 MHz.
+                </p>
+                <p>
+                    Working with the VGA protocol taught me how to follow strict timing requirements, like sync pulses
+                    and scan structure, to create a stable 640×480@60Hz display.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-name">Ari Manjikian</span>
+            <div class="footer-links">
+                <a href="mailto:amanjikian3@gatech.edu">Email</a>
+                <a href="https://linkedin.com/in/arimanjikian">LinkedIn</a>
+                <a href="https://github.com/arimanjikian">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('.proj-section');
+        const obs = new IntersectionObserver(
+            entries => entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
+                }
+            }),
+            {threshold: 0.06}
+        );
+        sections.forEach(s => obs.observe(s));
+    </script>
+
+</body>
+
+</html>

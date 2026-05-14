@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RISC-V CPU Core — Ari Manjikian</title>
+    <link rel="stylesheet" href="./projects.css" />
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-logo" href="../index.html">Ari <span>Manjikian</span></a>
+            <a class="nav-back" href="../index.html#projects">All Projects</a>
+        </div>
+    </nav>
+
+    <div class="page-wrap">
+
+        <!-- HERO -->
+        <header class="proj-hero">
+            <p class="proj-eyebrow">Computer Architecture · Nov 2025 · SystemVerilog</p>
+            <h1 class="proj-title">RISC-V Single-Cycle CPU</h1>
+            <p class="proj-summary">A complete RV32I processor core built from scratch in SystemVerilog, verified with a
+                cocotb test framework running in Verilator — achieving 99.4% code coverage across the full instruction
+                set.</p>
+            <div class="proj-meta-row">
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">ISA</span>
+                    <span class="proj-meta-value">RISC-V RV32I</span>
+                </div>
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Language</span>
+                    <span class="proj-meta-value">SystemVerilog</span>
+                </div>
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Verification</span>
+                    <span class="proj-meta-value">cocotb + Verilator</span>
+                </div>
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Coverage</span>
+                    <span class="proj-meta-value">99.4% code coverage</span>
+                </div>
+            </div>
+            <div class="tag-row">
+                <span class="tag">SystemVerilog</span>
+                <span class="tag">RISC-V RV32I</span>
+                <span class="tag">cocotb</span>
+                <span class="tag">Verilator</span>
+                <span class="tag">Computer Architecture</span>
+                <span class="tag">Formal Verification</span>
+            </div>
+            <div class="proj-cta">
+                <a class="btn btn-primary" href="https://github.com/AriManjikian/core0_riscv" target="_blank">View on
+                    GitHub</a>
+                <a class="btn btn-secondary" href="../index.html#projects">← Back to Projects</a>
+            </div>
+        </header>
+
+        <!-- STATS -->
+        <section class="proj-section">
+            <p class="section-header">Relevant Statistics</p>
+            <div class="stats-row">
+                <div class="stat-cell">
+                    <span class="stat-value">47</span>
+                    <span class="stat-label">RV32I Instructions</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-value">99.4<span style="font-size:1.1rem">%</span></span>
+                    <span class="stat-label">Code Coverage</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-value">32</span>
+                    <span class="stat-label">Register File Entries</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Instruction Formats</span>
+                </div>
+                <div class="stat-cell">
+                    <span class="stat-value">1</span>
+                    <span class="stat-label">Cycle per Instruction</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- OVERVIEW -->
+        <section class="proj-section">
+            <p class="section-heading">Overview</p>
+            <div class="prose">
+                <p>
+                    This project implements a single-cycle RISC-V RV32I processor in SystemVerilog, supporting the full
+                    base
+                    integer instruction set and all standard instruction formats.
+                </p>
+                <p>
+                    I focused on both datapath design and verification. The CPU was tested using cocotb and simulated
+                    with
+                    Verilator, allowing me to build a comprehensive testbench that validates instruction behavior,
+                    control
+                    logic, and edge cases.
+                </p>
+                <p>
+                    This project strengthened my understanding of ISA design, control logic, and hardware verification
+                    workflows, as well as the tooling used to simulate and validate RTL designs.
+                </p>
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE -->
+        <section class="proj-section">
+            <p class="section-heading">Architecture</p>
+            <div class="prose">
+                <p>The PC register drives the instruction memory address. On each rising clock edge the PC advances by 4
+                    (next sequential instruction) or loads a branch/jump target. Instruction memory is implemented as a
+                    synchronous ROM initialized from a <code>.mem</code> file at synthesis time.</p>
+                <p>A combinational decode block extracts <code>rs1</code>, <code>rs2</code>, <code>rd</code>,
+                    <code>funct3</code>, <code>funct7</code>, and the immediate from the 32-bit instruction word. All
+                    six RV32I immediate encodings (I, S, B, U, J, and R-type) are sign-extended here.
+                </p>
+                <p>A 32-bit ALU handles ADD, SUB, SLL, SRL, SRA, AND, OR, XOR, SLT, and SLTU. ALU input A is either
+                    <code>rs1</code> or PC (for AUIPC); input B is either <code>rs2</code> or the sign-extended
+                    immediate. A separate branch comparator evaluates BEQ, BNE, BLT, BGE, BLTU, BGEU.
+                </p>
+                <p>The data memory supports halfword (<code>LH/SH</code>) and word
+                    (<code>LW/SW</code>) accesses with proper sign extension on loads. The writeback mux selects between
+                    ALU result, memory read data, PC+4 (for JAL/JALR), and the upper-immediate (for LUI/AUIPC).</p>
+            </div>
+
+            <div class="gallery" style="margin-top:1.8rem;">
+                <div class="gallery-row cols-1">
+                    <div class="img-frame">
+                        <img src="/assets/core0_architecture.png" alt="">
+                        <div class="img-caption">Complete single-cycle processor</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VERIFICATION -->
+        <section class="proj-section">
+            <p class="section-heading">Verification</p>
+            <div class="prose">
+                <p>Simulation was driven by a Python cocotb testbench running on top of Verilator. Each test loads a
+                    small assembly program into instruction memory, resets the core, and cycles the clock while checking
+                    register file state and memory contents against a software reference model.</p>
+            </div>
+            <div class="code-block">
+                <span class="comment"># cocotb test — verify LW datapath</span><br>
+                <span class="keyword">@cocotb.test</span>()<br>
+                <span class="keyword">async def</span> cpu_instr_test(dut):<br>
+                &nbsp;&nbsp;cocotb.start_soon(Clock(dut.clk, 1, unit=<span class="string">"ns"</span>).start())<br>
+                &nbsp;&nbsp;await RisingEdge(dut.clk)<br>
+                &nbsp;&nbsp;await cpu_reset(dut)<br>
+                <br>
+                &nbsp;&nbsp;<span class="comment"># LW</span><br>
+                &nbsp;&nbsp;await RisingEdge(dut.clk)<br>
+                &nbsp;&nbsp;<span class="keyword">assert</span> (<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;binary_to_hex(dut.regfile.registers[<span class="num">18</span>].value) == <span
+                    class="string">"DEADBEEF"</span><br>
+                &nbsp;&nbsp;), <span class="string">"[CPU] LW datapath failed"</span><br>
+            </div>
+            <div class="gallery" style="margin-top:1.5rem;">
+                <div class="img-frame">
+                    <img src="/assets/core0_waveform.png" alt="">
+                    <div class="img-caption">Fig 3. GTKWave trace: BEQ taken vs not-taken paths across two
+                        instructions</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFLECTIONS -->
+        <section class="proj-section">
+            <p class="section-heading">Reflections</p>
+            <div class="prose">
+                <p>This project helped me understand how a CPU really works at a low level. I learned how all the parts
+                    (instruction memory, register file, ALU, and data memory) work together in a single cycle, and why
+                    that
+                    can limit performance.</p>
+
+                <p>I also learned how important testing is. Even when I thought my design was correct, automated testing
+                    helped me find bugs I hadn’t considered. This showed me that good verification is just as important
+                    as
+                    writing the design itself.</p>
+
+                <p>Moving forward, I want to explore more advanced concepts like pipelining, hazard detection, and
+                    performance improvements. This project gave me a strong foundation to build on for more complex
+                    computer architecture work.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-name">Ari Manjikian</span>
+            <div class="footer-links">
+                <a href="mailto:amanjikian3@gatech.edu">Email</a>
+                <a href="https://linkedin.com/in/arimanjikian">LinkedIn</a>
+                <a href="https://github.com/arimanjikian">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('.proj-section');
+        const obs = new IntersectionObserver(
+            entries => entries.forEach(e => {if (e.isIntersecting) {e.target.classList.add('visible'); obs.unobserve(e.target);} }),
+            {threshold: 0.06}
+        );
+        sections.forEach(s => obs.observe(s));
+    </script>
+</body>
+
+</html>

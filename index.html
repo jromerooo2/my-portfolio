@@ -1,15 +1,1030 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juan Romero's Portfolio</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juan Romero — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #0d0e0f;
+            --bg2: #131415;
+            --rule: #252628;
+            --text: #e8e6e1;
+            --muted: #7a7874;
+            --accent: #c8a96e;
+            --accent2: #8fb8d4;
+            --card: #161718;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(13,14,15,0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--rule);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 2rem; height: 58px;
+        }
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem; color: var(--text);
+            text-decoration: none; letter-spacing: 0.02em;
+        }
+        .nav-logo span { color: var(--accent); font-style: italic; }
+        .nav-links { list-style: none; display: flex; gap: 2rem; }
+        .nav-links a {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--muted);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* PAGE WRAP */
+        .page-wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+        /* SECTIONS */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--rule);
+            opacity: 0; transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        section.visible, section#hero { opacity: 1; transform: none; }
+
+        /* HERO */
+        #hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center;
+            padding-top: 80px;
+            position: relative; overflow: hidden;
+        }
+        #hero::before {
+            content: '';
+            position: absolute; top: -200px; right: -300px;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(200,169,110,0.07) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        .hero-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 400; line-height: 1;
+            letter-spacing: -0.02em; margin-bottom: 2rem;
+        }
+        .hero-name em { color: var(--accent); font-style: italic; }
+        .hero-tagline {
+            font-size: 1.05rem; color: var(--muted);
+            max-width: 520px; margin-bottom: 2.5rem; line-height: 1.8;
+        }
+        .hero-meta {
+            display: flex; gap: 2.5rem; flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .hero-meta-item {
+            display: flex; flex-direction: column; gap: 0.2rem;
+        }
+        .hero-meta-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.62rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--muted);
+        }
+        .hero-meta-value {
+            font-size: 0.92rem; color: var(--text);
+        }
+        .btn {
+            display: inline-block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem; letter-spacing: 0.12em;
+            text-transform: uppercase; text-decoration: none;
+            padding: 0.85rem 2rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn:hover { background: var(--accent); color: var(--bg); }
+
+        /* SECTION HEADER */
+        .section-header { margin-bottom: 3rem; }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400; letter-spacing: -0.01em;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 300px; gap: 4rem;
+        }
+        .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 0.97rem; }
+        .sidebar-block { margin-bottom: 2rem; }
+        .sidebar-block h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--accent);
+            margin-bottom: 0.8rem;
+        }
+        .sidebar-block a {
+            display: block; color: var(--muted); font-size: 0.88rem;
+            text-decoration: none; margin-bottom: 0.4rem;
+            transition: color 0.2s;
+        }
+        .sidebar-block a:hover { color: var(--accent); }
+
+        /* PORTFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .portfolio-card {
+            background: var(--card);
+            border: 1px solid var(--rule);
+            padding: 2rem;
+            transition: border-color 0.2s, transform 0.2s;
+            position: relative; overflow: hidden;
+        }
+        .portfolio-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 3px; height: 0;
+            background: var(--accent);
+            transition: height 0.3s;
+        }
+        .portfolio-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .portfolio-card:hover::before { height: 100%; }
+        .portfolio-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.62rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--accent2);
+            margin-bottom: 0.7rem;
+        }
+        .portfolio-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem; font-weight: 400;
+            margin-bottom: 0.8rem; line-height: 1.3;
+        }
+        .portfolio-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+        .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.2rem; }
+        .tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.62rem; letter-spacing: 0.08em;
+            background: rgba(200,169,110,0.1);
+            color: var(--accent); padding: 0.25rem 0.6rem;
+            border: 1px solid rgba(200,169,110,0.2);
+        }
+
+        /* EXPERIENCE */
+        .exp-list { display: flex; flex-direction: column; gap: 3rem; }
+        .exp-item {
+            display: grid; grid-template-columns: 180px 1fr;
+            gap: 2rem; padding-bottom: 3rem;
+            border-bottom: 1px solid var(--rule);
+        }
+        .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .exp-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem; letter-spacing: 0.05em;
+            color: var(--muted); padding-top: 0.15rem;
+        }
+        .exp-role {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem; font-weight: 400; margin-bottom: 0.2rem;
+        }
+        .exp-company {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem; color: var(--accent);
+            letter-spacing: 0.05em; margin-bottom: 1rem;
+        }
+        .exp-desc ul { list-style: none; padding: 0; }
+        .exp-desc li {
+            color: var(--muted); font-size: 0.9rem;
+            padding: 0.35rem 0; padding-left: 1.2rem;
+            position: relative;
+        }
+        .exp-desc li::before {
+            content: '—';
+            position: absolute; left: 0;
+            color: var(--accent); font-size: 0.8rem;
+        }
+
+        /* COURSEWORK */
+        .course-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.2rem;
+        }
+        .course-card {
+            background: var(--card); border: 1px solid var(--rule);
+            padding: 1.5rem; transition: border-color 0.2s;
+        }
+        .course-card:hover { border-color: var(--accent2); }
+        .course-code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem; letter-spacing: 0.1em;
+            color: var(--accent2); margin-bottom: 0.4rem;
+        }
+        .course-name {
+            font-size: 0.92rem; font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+        .course-description { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .skill-category h4 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-item {
+            font-size: 0.82rem; color: var(--muted);
+            background: var(--card); border: 1px solid var(--rule);
+            padding: 0.3rem 0.7rem;
+        }
+
+        /* GOALS */
+        .goals-layout {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .goal-card {
+            background: var(--card); border: 1px solid var(--rule);
+            padding: 2rem; transition: border-color 0.2s;
+        }
+        .goal-card:hover { border-color: var(--accent); }
+        .goal-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem; font-weight: 400;
+            margin-bottom: 0.8rem; color: var(--text);
+        }
+        .goal-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--rule);
+            padding: 2.5rem 0; margin-top: 0;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem; color: var(--muted);
+        }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--muted);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* PORTFOLIO CARD CLICKABLE */
+        .portfolio-card {
+            cursor: pointer;
+        }
+        .portfolio-card-footer {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-top: 1.4rem; padding-top: 1rem;
+            border-top: 1px solid var(--rule);
+        }
+        .portfolio-card-cta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent);
+            display: flex; align-items: center; gap: 0.4rem;
+            transition: gap 0.2s;
+        }
+        .portfolio-card:hover .portfolio-card-cta { gap: 0.7rem; }
+        .portfolio-card-cta svg { transition: transform 0.2s; }
+        .portfolio-card:hover .portfolio-card-cta svg { transform: translateX(3px); }
+
+        /* MODAL OVERLAY */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 500;
+            background: rgba(5,5,6,0.92);
+            backdrop-filter: blur(16px);
+            display: flex; align-items: center; justify-content: center;
+            padding: 1.5rem;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.open {
+            opacity: 1; pointer-events: all;
+        }
+
+        /* MODAL BOX */
+        .modal {
+            background: var(--card);
+            border: 1px solid var(--rule);
+            width: 100%; max-width: 820px;
+            max-height: 90vh; overflow-y: auto;
+            position: relative;
+            transform: translateY(24px) scale(0.98);
+            transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+        }
+        .modal-overlay.open .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        /* scrollbar */
+        .modal::-webkit-scrollbar { width: 4px; }
+        .modal::-webkit-scrollbar-track { background: transparent; }
+        .modal::-webkit-scrollbar-thumb { background: var(--rule); }
+
+        .modal-close {
+            position: absolute; top: 1.2rem; right: 1.2rem;
+            background: none; border: 1px solid var(--rule);
+            color: var(--muted); width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 1.1rem; z-index: 10;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .modal-close:hover { border-color: var(--accent); color: var(--accent); }
+
+        /* IMAGE GALLERY */
+        .modal-gallery {
+            width: 100%;
+            background: #0a0b0c;
+            border-bottom: 1px solid var(--rule);
+            min-height: 240px;
+            position: relative; overflow: hidden;
+        }
+        .modal-gallery-inner {
+            display: flex; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+            height: 340px;
+        }
+        .modal-gallery-slide {
+            min-width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .modal-gallery-slide img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .modal-gallery-placeholder {
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 0.8rem;
+            color: var(--rule);
+        }
+        .modal-gallery-placeholder svg { width: 48px; height: 48px; opacity: 0.3; }
+        .modal-gallery-placeholder span {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--muted); opacity: 0.5;
+        }
+        /* nav arrows */
+        .gallery-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(13,14,15,0.7); border: 1px solid var(--rule);
+            color: var(--text); width: 38px; height: 38px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 5;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .gallery-arrow:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+        .gallery-arrow.prev { left: 1rem; }
+        .gallery-arrow.next { right: 1rem; }
+        .gallery-arrow.hidden { display: none; }
+        /* dots */
+        .gallery-dots {
+            position: absolute; bottom: 0.8rem; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 0.4rem;
+        }
+        .gallery-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%; background: var(--muted); opacity: 0.4;
+            cursor: pointer; transition: opacity 0.2s, background 0.2s;
+        }
+        .gallery-dot.active { background: var(--accent); opacity: 1; }
+
+        /* MODAL BODY */
+        .modal-body { padding: 2.5rem 2.5rem 2rem; }
+        .modal-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.62rem; letter-spacing: 0.15em;
+            text-transform: uppercase; color: var(--accent2);
+            margin-bottom: 0.6rem;
+        }
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem; font-weight: 400;
+            line-height: 1.25; margin-bottom: 1.2rem;
+        }
+        .modal-desc {
+            color: var(--muted); font-size: 0.92rem;
+            line-height: 1.8; margin-bottom: 1.5rem;
+        }
+        .modal-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+
+        /* image upload hint */
+        .modal-img-hint {
+            background: rgba(200,169,110,0.06);
+            border: 1px dashed rgba(200,169,110,0.25);
+            padding: 0.8rem 1.2rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem; letter-spacing: 0.08em;
+            color: var(--muted);
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .modal-img-hint svg { flex-shrink: 0; }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+            .goals-layout { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hero-meta { gap: 1.5rem; }
+            .modal-body { padding: 1.5rem; }
+            .modal-gallery-inner { height: 220px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-logo" href="#hero">Juan <span>Romero</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#coursework">Coursework</a></li>
+                <li><a href="#goals">Goals</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-wrap">
+
+        <!-- HERO -->
+        <section id="hero" style="opacity:1;transform:none;">
+            <p class="hero-eyebrow">Mechanical Engineering · Class of 2027</p>
+            <h1 class="hero-name">Juan<br /><em>Romero</em></h1>
+            <p class="hero-tagline">Mechanical Engineering student at Georgia Tech working at the intersection of propulsion, fluid systems, and space robotics. Jack Kent Cooke Scholar, Dean's List.</p>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Institution</span>
+                    <span class="hero-meta-value">Georgia Institute of Technology</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Major</span>
+                    <span class="hero-meta-value">Mechanical Engineering</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">GPA</span>
+                    <span class="hero-meta-value">3.84 / 4.00</span>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a class="btn" href="mailto:jromero73@gatech.edu">Get in Touch</a>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="section-header">
+                <h2 class="section-title">About</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I'm a Mechanical Engineering student at Georgia Tech with a strong focus on propulsion, fluid systems, and space robotics. My work spans from hands-on fabrication and combustion lab research to leading the mechanical design of a lunar surface rover concept.</p>
+                    <p>I believe great engineering lives at the boundary between rigorous analysis and hands-on making. Whether it's welding a plumbing assembly or writing MATLAB code to quantify nanoscale defects, I push to understand every layer of the systems I build. Outside of engineering, I'm passionate about mentorship and expanding STEM access — most recently as a co-founder of InspiraSTEM in El Salvador.</p>
+                </div>
+                <div class="about-sidebar">
+                    <div class="sidebar-block">
+                        <h4>Contact</h4>
+                        <a href="mailto:jromero73@gatech.edu">jromero73@gatech.edu</a>
+                        <a href="https://linkedin.com/in/jromerooo2" target="_blank">linkedin.com/in/jromerooo2</a>
+                        <a href="https://github.com/jromerooo2" target="_blank">github.com/jromerooo2</a>
+                    </div>
+                    <div class="sidebar-block">
+                        <h4>Honors</h4>
+                        <span style="display:block;color:var(--muted);font-size:0.88rem;">Jack Kent Cooke Scholar</span>
+                        <span style="display:block;color:var(--muted);font-size:0.88rem;">Dean's List</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio">
+            <div class="section-header">
+                <h2 class="section-title">Portfolio</h2>
+            </div>
+            <div class="portfolio-grid">
+
+                <div class="portfolio-card"
+                    data-label="Propulsion · Fabrication"
+                    data-title="CTS Leak-Detection Test Leg"
+                    data-desc="Designed and fabricated a leak-detection subsystem for the Component Test Stand (CTS) at YJSP. Built flow meters in series to measure flow-rate differentials, created P&amp;IDs and physical layouts, and sized tube diameters and high-mass-flow relief valves for safe, precise component testing. Fabricated the final assembly end-to-end — sourcing components from stock and adapting interfaces for various port sizes."
+                    data-tags="P&ID,Fluid Systems,Fabrication,Propulsion,Relief Valves"
+                    data-images="">
+                    <div class="portfolio-label">Propulsion · Fabrication</div>
+                    <h3 class="portfolio-title">Leak-Detection Test Leg</h3>
+                    <p class="portfolio-desc">Designed and fabricated a leak-detection subsystem for the Component Test Stand (CTS) at YJSP. Built flow meters in series to measure flow-rate differentials, created P&IDs and physical layouts, and sized tube diameters and relief valves.</p>
+                    <div class="tag-row">
+                        <span class="tag">P&ID</span>
+                        <span class="tag">Fluid Systems</span>
+                        <span class="tag">Fabrication</span>
+                        <span class="tag">Propulsion</span>
+                    </div>
+                    <div class="portfolio-card-footer">
+                        <div class="portfolio-card-cta">
+                            View Project <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card"
+                    data-label="Space Robotics · CAD"
+                    data-title="Lunar Rover — PSR Payload Design"
+                    data-desc="Leading mechanical design of a robotic lunar surface vehicle for a Pre-Phase A concept study targeting Lunar Permanently Shadowed Regions (PSRs) as part of the L'Space Mission Concept Academy. Developing NX CAD models for a &lt;150 kg, $150M, 1.5 m³ rover system designed to characterize lunar volatile compounds for future Artemis exploration. Directing payload mechanical concept development and actively collaborating with engineers and scientists across disciplines."
+                    data-tags="NX CAD,Spacecraft Design,Robotics,L'Space Academy,Artemis"
+                    data-images="assets/rover.png">
+                    <div class="portfolio-label">Space Robotics · CAD</div>
+                    <h3 class="portfolio-title">Lunar Rover — PSR Payload Design</h3>
+                    <p class="portfolio-desc">Leading mechanical design of a robotic lunar surface vehicle for a Pre-Phase A concept study targeting Lunar Permanently Shadowed Regions (PSRs). NX CAD models for a &lt;150 kg, $150M rover to characterize lunar volatiles for Artemis.</p>
+                    <div class="tag-row">
+                        <span class="tag">NX CAD</span>
+                        <span class="tag">Spacecraft Design</span>
+                        <span class="tag">Robotics</span>
+                        <span class="tag">L'Space Academy</span>
+                    </div>
+                    <div class="portfolio-card-footer">
+                        <div class="portfolio-card-cta">
+                            View Project <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card"
+                    data-label="Materials · Research"
+                    data-title="Niobium Surface Defect Optimization"
+                    data-desc="At Fermi National Accelerator Laboratory, I analyzed niobium samples used in superconducting particle accelerator cavities for material properties and surface defects using SEM, XPS, and Confocal Microscopy. Developed MATLAB and Python analysis pipelines to quantify nanoscale defects. Optimized niobium using oxidation processes to reduce surface carbides by 20%, allowing accelerator energy to be used more efficiently."
+                    data-tags="SEM / XPS,Confocal Microscopy,MATLAB,Python,Materials Science,Fermilab"
+                    data-images="assets/fermi.png">
+                    <div class="portfolio-label">Materials · Research</div>
+                    <h3 class="portfolio-title">Niobium Surface Defect Optimization</h3>
+                    <p class="portfolio-desc">At Fermi National Accelerator Laboratory, analyzed niobium samples using SEM, XPS, and Confocal Microscopy. Developed MATLAB and Python pipelines to quantify nanoscale defects; reduced surface carbides by 20%.</p>
+                    <div class="tag-row">
+                        <span class="tag">SEM / XPS</span>
+                        <span class="tag">MATLAB</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Materials Science</span>
+                    </div>
+                    <div class="portfolio-card-footer">
+                        <div class="portfolio-card-cta">
+                            View Project <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card"
+                    data-label="Robotics · Software"
+                    data-title="Kalihi, a 500g Autonomous Robot"
+                    data-desc="Kalihi is a 500g autonomous robot, used for robowrestling. I am the proud owner of its mechanical design and parts of the manufacturing. With Kalihi I learned about mechanical design, efficient electronics packaging. I also learned about ROS in python through the development of defense strategies."
+                    data-tags="DFM / GD&T,ROS,Python,Fabrication,Autonomous Systems"
+                    data-images="assets/kalihipres.png">
+                    <div class="portfolio-label">Robotics · Software</div>
+                    <h3 class="portfolio-title">Kalihi</h3>
+                    <p class="portfolio-desc">Designed and fabricated high-speed mechanical systems for a 500 g autonomous competition robot using DFM and GD&amp;T practices. Collaborated on ROS-based software in Python for robot control.</p>
+                    <div class="tag-row">
+                        <span class="tag">DFM / GD&T</span>
+                        <span class="tag">ROS</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Fabrication</span>
+                    </div>
+                    <div class="portfolio-card-footer">
+                        <div class="portfolio-card-cta">
+                            View Project <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- MODAL -->
+        <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
+            <div class="modal" id="modal">
+                <button class="modal-close" id="modal-close" aria-label="Close">&#x2715;</button>
+
+                <div class="modal-gallery" id="modal-gallery">
+                    <div class="modal-gallery-inner" id="modal-gallery-inner"></div>
+                    <button class="gallery-arrow prev hidden" id="gallery-prev" aria-label="Previous">&#8592;</button>
+                    <button class="gallery-arrow next hidden" id="gallery-next" aria-label="Next">&#8594;</button>
+                    <div class="gallery-dots" id="gallery-dots"></div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-label" id="modal-label"></div>
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <p class="modal-desc" id="modal-desc"></p>
+                    <div class="modal-tags" id="modal-tags"></div>
+                    <div class="modal-img-hint" id="modal-img-hint">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/><circle cx="5.5" cy="5.5" r="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 11l4-3 3 2.5 2.5-2 4.5 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        To add photos, update the <code style="color:var(--accent);font-size:0.68rem;">data-images</code> attribute on each card with comma-separated image URLs.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+            </div>
+            <div class="exp-list">
+
+                <div class="exp-item">
+                    <div class="exp-date">Jan 2026 – Present</div>
+                    <div>
+                        <div class="exp-role">Component Test Stand Engineer</div>
+                        <div class="exp-company">Yellow Jacket Space Program · Georgia Tech</div>
+                        <div class="exp-desc">
+                            <ul>
+                                <li>Designed and built a leak-detection testing leg for the testing of various pieces of hardware used in fullscale missions for the Yellow Jacket Space Program.</li>
+                                <li>Created P&IDs and physical layouts, optimizing system packaging to integrate seamlessly with the existing test stand.</li>
+                                <li>Executed technical sizing for tube diameters and high-mass-flow relief valves, ensuring safe and precise component testing.</li>
+                                <li>Fabricated the final assembly, managing component sourcing and adapting interfaces for various port sizes.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-date">Jan 2026 – Present</div>
+                    <div>
+                        <div class="exp-role">Mechanical Engineer (Payload)</div>
+                        <div class="exp-company">L'Space Mission Concept Academy</div>
+                        <div class="exp-desc">
+                            <ul>
+                                <li>Spearheading mechanical design of a robotic lunar surface vehicle in a Pre-Phase A concept study targeting Lunar Permanently Shadowed Regions (PSRs) using NX CAD.</li>
+                                <li>Directing payload concept development for a &lt;150 kg, $150M, 1.5 m³ rover to characterize lunar volatiles for Artemis exploration, collaborating across engineering and science teams.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-date">Nov 2025 – Present</div>
+                    <div>
+                        <div class="exp-role">Undergraduate Research Assistant</div>
+                        <div class="exp-company">Ben T. Zinn Combustion Laboratory · Georgia Tech</div>
+                        <div class="exp-desc">
+                            <ul>
+                                <li>Supporting Pratt & Whitney-sponsored research on fluid systems for high-altitude turbine ignition testing on auxiliary power units.</li>
+                                <li>Developing experience in flow control, plumbing design, component integration, welding, and more for propulsion and aviation applications.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-date">Jul 2025 – Dec 2025</div>
+                    <div>
+                        <div class="exp-role">Mechanical and Software Engineer</div>
+                        <div class="exp-company">RoboJackets · Georgia Tech</div>
+                        <div class="exp-desc">
+                            <ul>
+                                <li>Designed and fabricated high-speed mechanical systems for a 500 g autonomous robot under strict dimensional constraints using DFM and GD&T practices.</li>
+                                <li>Collaborated on ROS development in Python, implementing features to enhance robot control and performance through data-driven testing.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-date">May 2025 – Jul 2025</div>
+                    <div>
+                        <div class="exp-role">Materials Engineer Intern</div>
+                        <div class="exp-company">Fermi National Accelerator Laboratory</div>
+                        <div class="exp-desc">
+                            <ul>
+                                <li>Analyzed material properties and surface defects using SEM, XPS, and Confocal Microscopy in niobium samples used in particle accelerators.</li>
+                                <li>Optimized niobium using oxidation processes to reduce surface carbides by 20%, improving energy efficiency.</li>
+                                <li>Developed MATLAB and Python analysis code to quantify nanoscale defects and validate material quality.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-date">May 2023 – Aug 2023</div>
+                    <div>
+                        <div class="exp-role">Research Intern</div>
+                        <div class="exp-company">MIT Media Lab</div>
+                        <div class="exp-desc">
+                            <ul>
+                                <li>Applied machine learning techniques to analyze behavioral and linguistic data for mental health assessments.</li>
+                                <li>Built a multimodal pipeline tracking facial features and their dynamics across 3-minute video clips, including custom parameters for smiling frequency and speech tone.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- COURSEWORK -->
+        <section id="coursework">
+            <div class="section-header">
+                <h2 class="section-title">Relevant Coursework</h2>
+            </div>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-code">ME 2016</div>
+                    <div class="course-name">Computing for Engineers</div>
+                    <div class="course-description">Programming fundamentals for engineering applications. Covers problem-solving, algorithms, data structures, and numerical methods using Python and MATLAB.</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-code">MSE 2001</div>
+                    <div class="course-name">Principles & Applications of Engineering Materials</div>
+                    <div class="course-description">Structure-property relationships in engineering materials: metals, ceramics, polymers, and composites. Covers processing, microstructure, and failure analysis.</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-code">COE 2001</div>
+                    <div class="course-name">Statics</div>
+                    <div class="course-description">Equilibrium of particles and rigid bodies, analysis of structures including trusses, frames, and machines. Distributed forces, friction, and virtual work.</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-code">MATH 2552</div>
+                    <div class="course-name">Differential Equations</div>
+                    <div class="course-description">Analytical and numerical solution methods with applications in modeling. First- and second-order equations, systems, Laplace transforms, stability, and numerical techniques.</div>
+                </div>
+                <div class="course-card">
+                    <div class="course-code">MATH 1553</div>
+                    <div class="course-name">Linear Algebra</div>
+                    <div class="course-description">Systems of equations, matrices, vector spaces, and linear transformations. Eigenvalues, eigenvectors, orthogonality, and applications in data modeling.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming & Data</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">MATLAB</span>
+                        <span class="skill-item">LaTeX</span>
+                        <span class="skill-item">SQL</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">PyTorch</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>CAD & Mechanical</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">SolidWorks</span>
+                        <span class="skill-item">NX CAD</span>
+                        <span class="skill-item">AutoDesk Inventor</span>
+                        <span class="skill-item">OnShape</span>
+                        <span class="skill-item">3D Modeling</span>
+                        <span class="skill-item">3D Printing</span>
+                        <span class="skill-item">FEA</span>
+                        <span class="skill-item">DFM</span>
+                        <span class="skill-item">Thermal Analysis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Fabrication & Testing</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Welding</span>
+                        <span class="skill-item">Plumbing Design</span>
+                        <span class="skill-item">Prototyping</span>
+                        <span class="skill-item">GD&T</span>
+                        <span class="skill-item">SEM / XPS</span>
+                        <span class="skill-item">Confocal Microscopy</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Software & Platforms</h4>
+                    <div class="skill-list">
+                        <span class="skill-item">Git</span>
+                        <span class="skill-item">GitHub</span>
+                        <span class="skill-item">Linux</span>
+                        <span class="skill-item">VS Code</span>
+                        <span class="skill-item">ROS</span>
+                        <span class="skill-item">macOS / Windows</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOALS -->
+        <section id="goals">
+            <div class="section-header">
+                <h2 class="section-title">Goals</h2>
+            </div>
+            <div class="goals-layout">
+                <div class="goal-card">
+                    <h3>Build systems that reach space</h3>
+                    <p>My long-term ambition is to contribute to propulsion and spacecraft systems that operate at the edge of what's possible — from high-performance rocket engines to the fluid and thermal systems that keep them running.</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Deepen research in propulsion & fluids</h3>
+                    <p>Through ongoing work at the Combustion Lab and YJSP, I want to build a rigorous foundation in propulsion research — understanding combustion physics, fluid dynamics, and high-pressure system design from first principles.</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Lead cross-disciplinary engineering</h3>
+                    <p>The most interesting problems sit between disciplines. I want to grow as an engineer who can bridge mechanical design, software systems, and mission architecture — as I'm doing now with the L'Space lunar rover concept.</p>
+                </div>
+                <div class="goal-card">
+                    <h3>Expand STEM access internationally</h3>
+                    <p>As a co-founder of InspiraSTEM, I've seen what mentorship can unlock. I want to keep building programs that connect students in underrepresented communities — especially in Latin America — to opportunities in engineering and science.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-inner">
+                <span class="footer-name">Juan Pablo Romero Ramos</span>
+                <div class="footer-links">
+                    <a href="mailto:jromero73@gatech.edu">Email</a>
+                    <a href="https://linkedin.com/in/jromerooo2" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/jromerooo2" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Scroll reveal
+        const sections = document.querySelectorAll('section:not(#hero)');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.07 });
+        sections.forEach(s => obs.observe(s));
+
+        // Active nav link
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const allSections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            allSections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+            navLinks.forEach(a => {
+                a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+            });
+        });
+
+        // ── MODAL ──────────────────────────────────────────────
+        const overlay   = document.getElementById('modal-overlay');
+        const modalEl   = document.getElementById('modal');
+        const closeBtn  = document.getElementById('modal-close');
+        const mLabel    = document.getElementById('modal-label');
+        const mTitle    = document.getElementById('modal-title');
+        const mDesc     = document.getElementById('modal-desc');
+        const mTags     = document.getElementById('modal-tags');
+        const mHint     = document.getElementById('modal-img-hint');
+        const galleryInner = document.getElementById('modal-gallery-inner');
+        const galleryDots  = document.getElementById('gallery-dots');
+        const prevBtn   = document.getElementById('gallery-prev');
+        const nextBtn   = document.getElementById('gallery-next');
+
+        let currentSlide = 0;
+        let totalSlides  = 0;
+
+        function goToSlide(n) {
+            currentSlide = Math.max(0, Math.min(n, totalSlides - 1));
+            galleryInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.gallery-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === currentSlide);
+            });
+            prevBtn.classList.toggle('hidden', currentSlide === 0);
+            nextBtn.classList.toggle('hidden', currentSlide === totalSlides - 1);
+        }
+
+        prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+        // touch / swipe support
+        let touchStartX = 0;
+        galleryInner.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        galleryInner.addEventListener('touchend', e => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 40) goToSlide(dx < 0 ? currentSlide + 1 : currentSlide - 1);
+        });
+
+        function openModal(card) {
+            const label  = card.dataset.label  || '';
+            const title  = card.dataset.title  || '';
+            const desc   = card.dataset.desc   || '';
+            const tags   = (card.dataset.tags  || '').split(',').map(t => t.trim()).filter(Boolean);
+            const images = (card.dataset.images|| '').split(',').map(i => i.trim()).filter(Boolean);
+
+            mLabel.textContent = label;
+            mTitle.textContent = title;
+            mDesc.textContent  = desc;
+
+            // tags
+            mTags.innerHTML = tags.map(t =>
+                `<span class="tag">${t}</span>`
+            ).join('');
+
+            // gallery
+            galleryInner.innerHTML = '';
+            galleryDots.innerHTML  = '';
+            currentSlide = 0;
+
+            if (images.length > 0) {
+                mHint.style.display = 'none';
+                totalSlides = images.length;
+                images.forEach((src, i) => {
+                    const slide = document.createElement('div');
+                    slide.className = 'modal-gallery-slide';
+                    const img = document.createElement('img');
+                    img.src = src; img.alt = `${title} image ${i + 1}`;
+                    slide.appendChild(img);
+                    galleryInner.appendChild(slide);
+
+                    const dot = document.createElement('div');
+                    dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+                    dot.addEventListener('click', () => goToSlide(i));
+                    galleryDots.appendChild(dot);
+                });
+                prevBtn.classList.add('hidden');
+                nextBtn.classList.toggle('hidden', totalSlides <= 1);
+                if (totalSlides <= 1) galleryDots.innerHTML = '';
+            } else {
+                mHint.style.display = 'flex';
+                totalSlides = 1;
+                const slide = document.createElement('div');
+                slide.className = 'modal-gallery-slide';
+                slide.innerHTML = `<div class="modal-gallery-placeholder">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="4" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="16" cy="18" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M4 34l12-9 8 7 6-5 14 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>No images yet</span>
+                </div>`;
+                galleryInner.appendChild(slide);
+                prevBtn.classList.add('hidden');
+                nextBtn.classList.add('hidden');
+            }
+
+            // open
+            document.body.style.overflow = 'hidden';
+            overlay.classList.add('open');
+            modalEl.scrollTop = 0;
+        }
+
+        function closeModal() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.portfolio-card').forEach(card => {
+            card.addEventListener('click', () => openModal(card));
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+
+</body>
 </html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advent of FPGA — Ari Manjikian</title>
+    <link rel="stylesheet" href="./projects.css" />
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-logo" href="../index.html">Ari <span>Manjikian</span></a>
+            <a class="nav-back" href="../index.html#projects">All Projects</a>
+        </div>
+    </nav>
+
+    <div class="page-wrap">
+
+        <!-- HERO -->
+        <header class="proj-hero">
+            <p class="proj-eyebrow">RTL Design Challenge · Dec 2025 · Hardcaml / OCaml</p>
+            <h1 class="proj-title">Advent of FPGA</h1>
+            <p class="proj-summary">A solution to Jane Street's Advent of FPGA challenge: hardware solution
+                to a logic-driven streaming problem using Hardcaml, a hardware description library based on OCaml.
+            </p>
+            <div class="proj-meta-row">
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Language</span>
+                    <span class="proj-meta-value">Hardcaml / OCaml</span>
+                </div>
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Output</span>
+                    <span class="proj-meta-value">Synthesizable Verilog</span>
+                </div>
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Verification</span>
+                    <span class="proj-meta-value">Hardcaml Waveterm</span>
+                </div>
+                <div class="proj-meta-item">
+                    <span class="proj-meta-label">Date</span>
+                    <span class="proj-meta-value">December 2025</span>
+                </div>
+            </div>
+            <div class="tag-row">
+                <span class="tag">Hardcaml</span>
+                <span class="tag">OCaml</span>
+                <span class="tag">RTL Design</span>
+                <span class="tag">Cycle-Accurate Simulation</span>
+                <span class="tag">Waveform Verification</span>
+                <span class="tag">Functional Hardware</span>
+            </div>
+            <div class="proj-cta">
+                <a class="btn btn-primary" href="https://github.com/AriManjikian/advent-of-fpga-2025"
+                    target="_blank">View on
+                    GitHub</a>
+                <a class="btn btn-secondary" href="../index.html#projects">← Back to Projects</a>
+            </div>
+        </header>
+
+        <!-- OVERVIEW -->
+        <section class="proj-section">
+            <p class="section-heading">Background</p>
+            <div class="prose">
+                <p>
+                    I took on Jane Street’s Advent of FPGA challenge, which reimagines Advent of Code problems as
+                    hardware
+                    designs. The goal is to solve problems using FPGA-oriented thinking rather than
+                    traditional
+                    software.
+                </p>
+                <p>
+                    This was my introduction to both OCaml and Hardcaml. Coming from a hardware background, the
+                    functional
+                    programming model was initially unfamiliar. I worked through OCaml examples and existing Hardcaml
+                    designs,
+                    and used Jane Street’s template to set up a structured hardware project.
+                </p>
+                <p>
+                    The repository includes both a Hardcaml implementation of the hardware design and a Go reference
+                    model,
+                    which I used as a golden model for verification.
+                </p>
+            </div>
+        </section>
+
+        <!-- SOLUTION APPROACH -->
+        <section class="proj-section">
+            <p class="section-heading">Solution Approach</p>
+
+            <div class="code-block">
+                <span class="comment">(* Part 1 — Instantaneous rotation *)</span><br>
+                <span class="keyword">let</span> rotate pos dir amount =<br>
+                &nbsp;&nbsp;<span class="keyword">match</span> dir <span class="keyword">with</span><br>
+                &nbsp;&nbsp;| 'L' -> <span class="keyword">if</span> pos - amount &lt; 0 <span
+                    class="keyword">then</span> pos + 100 - amount <span class="keyword">else</span> pos - amount<br>
+                &nbsp;&nbsp;| 'R' -> <span class="keyword">if</span> pos + amount &gt; 99 <span
+                    class="keyword">then</span> pos - 100 + amount <span class="keyword">else</span> pos + amount<br>
+                &nbsp;&nbsp;| _ -> pos<br>
+                <br><br>
+
+                <span class="comment">(* Part 2 — Click-by-click rotation *)</span><br>
+                <span class="keyword">let</span> clicking_rotate pos dir amount =<br>
+                &nbsp;&nbsp;<span class="keyword">let</span> step (pos, count) _ =<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> pos' =<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">match</span> dir <span
+                    class="keyword">with</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 'L' -> <span class="keyword">if</span> pos = 0 <span
+                    class="keyword">then</span> 99 <span class="keyword">else</span> pos - 1<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 'R' -> <span class="keyword">if</span> pos = 99 <span
+                    class="keyword">then</span> 0 <span class="keyword">else</span> pos + 1<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| _ -> pos<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> count' = <span class="keyword">if</span> pos' =
+                0 <span class="keyword">then</span> count + 1 <span class="keyword">else</span> count<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">in</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;(pos', count')<br>
+                &nbsp;&nbsp;<span class="keyword">in</span><br>
+                &nbsp;&nbsp;<span class="keyword">let</span> final_pos, clicks =<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Seq.(ints 0 |> take amount |> fold_left step (pos, 0))<br>
+                &nbsp;&nbsp;<span class="keyword">in</span><br>
+                &nbsp;&nbsp;(final_pos, clicks)
+            </div>
+            <div class="prose">
+                <p>
+                    The OCaml reference model implements both parts of the problem. The first computes the final
+                    position using
+                    modular arithmetic, while the second models the rotation as a sequence of single-step updates,
+                    counting
+                    each time the dial passes through zero.
+                </p>
+            </div>
+        </section>
+
+
+        <div class="gallery" style="margin-top:1.8rem;">
+            <div class="gallery-row cols-1">
+                <div class="img-frame">
+                    <img src="/assets/advent_of_fpga_waveform.png" alt="">
+                    <div class="img-caption">Fig 1. Hardcaml Waveterm output</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REFLECTIONS -->
+        <section class="proj-section">
+            <p class="section-heading">What I Learned</p>
+            <div class="prose">
+                <p>
+                    This project changed how I think about problem solving. Instead of writing a sequence of steps, I
+                    had to
+                    describe a system that continuously processes data, where every cycle matters and state evolves over
+                    time.
+                </p>
+                <p>
+                    I learned how to translate a high-level problem into a streaming datapath by breaking it into
+                    registers,
+                    combinational logic, and clear state transitions. Even simple problems required careful thought
+                    about how
+                    values move and update on each clock edge.
+                </p>
+                <p>
+                    It also reinforced the importance of timing and correctness at the cycle level. Designing the logic
+                    is only
+                    part of the problem. Ensuring that signals arrive at the right time and that edge cases are handled
+                    across
+                    cycles is just as important.
+                </p>
+                <p>
+                    Overall, this experience strengthened my intuition for thinking in hardware, designing systems
+                    defined by
+                    structure and timing rather than control flow.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-name">Ari Manjikian</span>
+            <div class="footer-links">
+                <a href="mailto:amanjikian3@gatech.edu">Email</a>
+                <a href="https://linkedin.com/in/arimanjikian">LinkedIn</a>
+                <a href="https://github.com/arimanjikian">GitHub</a>
+                <a href="../index.html">Portfolio</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('.proj-section');
+        const obs = new IntersectionObserver(
+            entries => entries.forEach(e => {if (e.isIntersecting) {e.target.classList.add('visible'); obs.unobserve(e.target);} }),
+            {threshold: 0.06}
+        );
+        sections.forEach(s => obs.observe(s));
+    </script>
+</body>
+
+</html>

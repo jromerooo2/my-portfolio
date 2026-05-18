@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Presentation — Juan Romero</title>
+    <link rel="stylesheet" href="./presentation.css" />
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-logo" href="../index.html">Juan <span>Romero</span></a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#portfolio">Portfolio</a></li>
+                <li><a href="presentation.html" class="active">Presentation</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#coursework">Coursework</a></li>
+                <li><a href="../index.html#goals">Goals</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="deck" id="deck" aria-live="polite">
+
+        <!-- SLIDE 0: Title -->
+        <section class="slide slide-title-only active" data-slide="0" aria-hidden="false">
+            <div class="slide-inner">
+                <div class="slide-body">
+                    <div class="title-slide-content">
+                        <p class="slide-role" style="text-align:center;">Engineering Portfolio</p>
+                        <h1>Juan<br /><em>Romero</em></h1>
+                        <p class="title-tagline">Mechanical Engineering at Georgia Tech — propulsion, materials research, space robotics, and rapid prototyping.</p>
+                        <div class="title-slide-meta">
+                            <div class="title-meta-item">
+                                <span class="title-meta-label">Email</span>
+                                <span class="title-meta-value"><a href="mailto:jromero73@gatech.edu" style="color:inherit;text-decoration:none;">jromero73@gatech.edu</a></span>
+                            </div>
+                            <div class="title-meta-item">
+                                <span class="title-meta-label">LinkedIn</span>
+                                <span class="title-meta-value"><a href="https://linkedin.com/in/jromerooo2" target="_blank" style="color:inherit;text-decoration:none;">linkedin.com/in/jromerooo2</a></span>
+                            </div>
+                        </div>
+                        <div class="title-actions">
+                            <button class="btn" id="start-btn" type="button">Begin Presentation</button>
+                            <a class="btn btn-ghost" href="../assets/Juan%20Romero%20-%20Portfolio.pdf" target="_blank" rel="noopener">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 1: Lunar Rover -->
+        <section class="slide" data-slide="1" aria-hidden="true">
+            <div class="slide-inner">
+                <header class="slide-masthead">
+                    <div class="masthead-contact">
+                        <a href="mailto:jromero73@gatech.edu">jromero73@gatech.edu</a><br />
+                        <a href="https://linkedin.com/in/jromerooo2" target="_blank" rel="noopener">linkedin.com/in/jromerooo2</a>
+                    </div>
+                    <div class="masthead-identity">
+                        <div class="masthead-name">JUAN ROMERO</div>
+                        <div class="masthead-subtitle">Mechanical Engineering at the Georgia Institute of Technology</div>
+                    </div>
+                </header>
+                <p class="slide-role">Mechanical Engineering Lead — NASA L'SPACE Program</p>
+                <div class="slide-body">
+                    <div class="slide-visual">
+                        <img src="../assets/rover.png" alt="Lunar rover CAD render" />
+                    </div>
+                    <div class="slide-content">
+                        <div class="content-block">
+                            <h3>What?</h3>
+                            <p>Led the mechanical architecture for a lunar rover optimized for cryogenic exploration in Permanently Shadowed Regions (PSRs). Scope included a high-torque percussive-rotary drill for volatile extraction and a passive thermal control system to safeguard core infrastructure.</p>
+                        </div>
+                        <div class="content-block">
+                            <h3>How?</h3>
+                            <ul>
+                                <li>Owned the entire CAD lifecycle in Siemens NX to integrate chassis, suspension, and drilling subsystems</li>
+                                <li>Embedded the custom drill mechanism and developed ISRU workflows to harvest oxygen and hydrogen</li>
+                                <li>Strategically mapped Multi-Layer Insulation (MLI) layouts</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h3>Results</h3>
+                            <p>Delivered a structurally optimized rover engineered for extreme lunar terrain. The design enables closed-loop power via regenerative fuel cells to sustain operations through the lunar night and shields sensitive avionics from catastrophic freezing in <span class="highlight">40K environments</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: Fermilab -->
+        <section class="slide" data-slide="2" aria-hidden="true">
+            <div class="slide-inner">
+                <header class="slide-masthead">
+                    <div class="masthead-contact">
+                        <a href="mailto:jromero73@gatech.edu">jromero73@gatech.edu</a><br />
+                        <a href="https://linkedin.com/in/jromerooo2" target="_blank" rel="noopener">linkedin.com/in/jromerooo2</a>
+                    </div>
+                    <div class="masthead-identity">
+                        <div class="masthead-name">JUAN ROMERO</div>
+                        <div class="masthead-subtitle">Mechanical Engineering at the Georgia Institute of Technology</div>
+                    </div>
+                </header>
+                <p class="slide-role">Materials Engineering Intern — Department of Energy, Fermilab</p>
+                <div class="slide-body">
+                    <div class="slide-visual">
+                        <img src="../assets/fermiposter.png" alt="Fermilab materials research" />
+                    </div>
+                    <div class="slide-content">
+                        <div class="content-block">
+                            <h3>What?</h3>
+                            <p>Decreased surface contaminants in superconducting materials used in particle accelerators at Fermi National Accelerator Laboratory.</p>
+                        </div>
+                        <div class="content-block">
+                            <h3>How?</h3>
+                            <ul>
+                                <li>Tested multiple oxidation techniques</li>
+                                <li>Characterized samples during the process using electron microscopy (SEM, XPS, confocal)</li>
+                                <li>Developed MATLAB and Python pipelines to quantify nanoscale defects</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h3>Results</h3>
+                            <p>With the best oxidation technique, <span class="highlight">20% of surface carbides were eliminated</span>, theoretically improving material performance and allowing accelerator energy to be used more efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Kalihi -->
+        <section class="slide" data-slide="3" aria-hidden="true">
+            <div class="slide-inner">
+                <header class="slide-masthead">
+                    <div class="masthead-contact">
+                        <a href="mailto:jromero73@gatech.edu">jromero73@gatech.edu</a><br />
+                        <a href="https://linkedin.com/in/jromerooo2" target="_blank" rel="noopener">linkedin.com/in/jromerooo2</a>
+                    </div>
+                    <div class="masthead-identity">
+                        <div class="masthead-name">JUAN ROMERO</div>
+                        <div class="masthead-subtitle">Mechanical Engineering at the Georgia Institute of Technology</div>
+                    </div>
+                </header>
+                <p class="slide-role">Mechanical Engineer — RoboJackets</p>
+                <div class="slide-body">
+                    <div class="slide-visual">
+                        <img src="../assets/kalihipres.png" alt="Kalihi autonomous robot" />
+                    </div>
+                    <div class="slide-content">
+                        <div class="content-block">
+                            <h3>What?</h3>
+                            <p>Designed and machined a <span class="highlight">500g autonomous bot</span> to participate in robowrestling matches.</p>
+                        </div>
+                        <div class="content-block">
+                            <h3>How?</h3>
+                            <ul>
+                                <li>Used SolidWorks to design and simulate the mechanics</li>
+                                <li>Brought the robot from concept to reality — modeling and testing in SolidWorks, then fabricating through 3D printing, machining, and hands-on assembly</li>
+                                <li>Collaborated on ROS-based control strategies in Python</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h3>Results</h3>
+                            <p>Will compete at regional and national levels, continuously iterating on fixes and match strategy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 4: MagSafe Mount -->
+        <section class="slide" data-slide="4" aria-hidden="true">
+            <div class="slide-inner">
+                <header class="slide-masthead">
+                    <div class="masthead-contact">
+                        <a href="mailto:jromero73@gatech.edu">jromero73@gatech.edu</a><br />
+                        <a href="https://linkedin.com/in/jromerooo2" target="_blank" rel="noopener">linkedin.com/in/jromerooo2</a>
+                    </div>
+                    <div class="masthead-identity">
+                        <div class="masthead-name">JUAN ROMERO</div>
+                        <div class="masthead-subtitle">Mechanical Engineering at the Georgia Institute of Technology</div>
+                    </div>
+                </header>
+                <p class="slide-role">Rapid Prototyping &amp; CAD Design — Magnetic Charging Mount</p>
+                <div class="slide-body">
+                    <div class="slide-visual">
+                        <img src="../assets/magnet.png" alt="Magnetic Mount" />
+                    </div>
+                    <div class="slide-content">
+                        <div class="content-block">
+                            <h3>What?</h3>
+                            <p>Designed a mounting solution to secure a smartphone to a standard university bed frame (lofted). Optimized alarm proximity for the user while mitigating audio disturbance for roommates, within tight space constraints.</p>
+                        </div>
+                        <div class="content-block">
+                            <h3>How?</h3>
+                            <ul>
+                                <li>Integrated a MagSafe inductive charger slot with precise caliper measurements for a snap-fit enclosure</li>
+                                <li>Used SolidWorks to design an attachment fitting lofted bed guards</li>
+                                <li>3D printed the final gadget in two design iterations</li>
+                            </ul>
+                        </div>
+                        <div class="content-block">
+                            <h3>Results</h3>
+                            <p>Achieved a functional interference fit supporting the phone and charger without adhesives. <span class="highlight">Reduced device drops to zero</span> and successfully localized alarm audio — finalized within 2 iterations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="deck-controls">
+        <div class="controls-inner">
+            <span class="slide-counter" id="slide-counter">1 / 5</span>
+            <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill" id="progress-fill" style="width: 20%;"></div>
+            </div>
+            <div class="slide-dots" id="slide-dots" role="tablist" aria-label="Slide navigation"></div>
+            <span class="keyboard-hint"><kbd>←</kbd> <kbd>→</kbd> navigate</span>
+            <div class="control-btns">
+                <button class="control-btn" id="prev-btn" type="button" disabled>Prev</button>
+                <button class="control-btn" id="next-btn" type="button">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slides = Array.from(document.querySelectorAll('.slide'));
+        const total = slides.length;
+        let current = 0;
+
+        const counterEl = document.getElementById('slide-counter');
+        const progressEl = document.getElementById('progress-fill');
+        const dotsEl = document.getElementById('slide-dots');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const startBtn = document.getElementById('start-btn');
+
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            dot.setAttribute('role', 'tab');
+            dot.addEventListener('click', () => goTo(i));
+            dotsEl.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsEl.querySelectorAll('.slide-dot'));
+
+        function updateUI() {
+            counterEl.textContent = `${current + 1} / ${total}`;
+            progressEl.style.width = `${((current + 1) / total) * 100}%`;
+            prevBtn.disabled = current === 0;
+            nextBtn.disabled = current === total - 1;
+            nextBtn.textContent = current === total - 1 ? 'End' : 'Next';
+            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+
+        function goTo(index) {
+            if (index < 0 || index >= total || index === current) return;
+
+            const dir = index > current ? 1 : -1;
+            slides[current].classList.remove('active');
+            slides[current].setAttribute('aria-hidden', 'true');
+            if (dir < 0) slides[current].classList.add('exit-left');
+
+            current = index;
+
+            slides.forEach(s => s.classList.remove('exit-left'));
+            slides[current].classList.add('active');
+            slides[current].setAttribute('aria-hidden', 'false');
+            updateUI();
+        }
+
+        function next() { goTo(current + 1); }
+        function prev() { goTo(current - 1); }
+
+        prevBtn.addEventListener('click', prev);
+        nextBtn.addEventListener('click', next);
+        startBtn.addEventListener('click', next);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                if (current < total - 1) next();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                if (current > 0) prev();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                goTo(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                goTo(total - 1);
+            }
+        });
+
+        let touchStartX = 0;
+        document.getElementById('deck').addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        document.getElementById('deck').addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) {
+                if (dx < 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        updateUI();
+    </script>
+
+</body>
+
+</html>
